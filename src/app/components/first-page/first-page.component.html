@@ -1,0 +1,38 @@
+@if (images) {
+	<ngb-carousel>
+		<ng-template ngbSlide>
+			<div class="picsum-img-wrapper">
+                <img [src]="images[0]" alt="Random first slide" class="carousel-image"/>
+			</div>
+			<div class="carousel-caption">
+				<a routerLink="/layout">
+					<h1>Welcome to V.V.P. Engineering Collage</h1>
+					<br>
+					<h3>Click to continue...</h3>
+					
+				</a>
+			</div>
+		</ng-template>
+		<ng-template ngbSlide>
+			<div class="picsum-img-wrapper">
+                    <img [src]="images[1]" alt="Random second slide" class="carousel-image" />
+			</div>
+			<div class="carousel-caption">
+				<a routerLink="/layout">
+					<h3>Click to continue...</h3>
+				</a>
+			</div>
+		</ng-template>
+		<ng-template ngbSlide>
+			<div class="picsum-img-wrapper">
+                    <img [src]="images[2]" alt="Random third slide" class="carousel-image" />
+			</div>
+			<div class="carousel-caption">
+				<a routerLink="/layout">
+					<h3>Click to continue...</h3>
+				</a>
+			</div>
+		</ng-template>
+	</ngb-carousel>
+}
+<img src="../../../assets/images/first-page/c" alt="">

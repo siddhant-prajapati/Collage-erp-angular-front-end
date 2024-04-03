@@ -1,0 +1,52 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</script>
+<div class="login-body">
+	<div class="container">
+		<div class="screen">
+			<div class="screen__content">
+				<app-form-header></app-form-header>
+				<form class="login" (ngSubmit)="loginUser(form)" #form="ngForm">
+					<div class="login__field">
+						<i class="login__icon fas fa-user"></i>
+						<input type="text" class="login__input" name="email" placeholder="User name / Email" ngModel>
+					</div>
+					<div class="login__field">
+						<i class="login__icon fas fa-lock"></i>
+						<input type="password" class="login__input" name="password" placeholder="Password" ngModel>
+					</div>
+					<div class="login__field">
+						<select name="role" id="role" [style.display]="hideRole"  class="form-select" [(ngModel)]="selectedValue">
+							<option value="student" selected>Student</option>
+							<option value="staff">Staff</option>
+							<option value="admin">Admin</option>
+						</select>
+					</div>
+					<div class="login__field">
+						<a routerLink="">Forget Password</a>
+					</div>
+					<button class="button login__submit">
+						<span class="button__text">Log In Now</span>
+						<i class="button__icon fas fa-chevron-right"></i>
+					</button>				
+				</form>
+				
+				<div class="request">
+					<a routerLink="../signup"> Don't Have account Please SingUp</a>
+				</div>
+				<div class="request">
+					<a href="" target="_blank"><img src="../../../assets/images/footer-images/twitter-logo.png" alt="" width="50" height="50" class="d-inline-block align-text-top"></a>
+          			<a href="" target="_blank"><img src="../../../assets/images/footer-images/facebook-icon.png" alt="" width="55" height="55" class="d-inline-block align-text-top"></a>
+         			<a href="" target="_blank"><img src="../../../assets/images/footer-images/google.jpg" alt="" width="50" height="50" class="d-inline-block align-text-top"></a>
+				</div>
+			</div>
+			<div class="screen__background">
+				<span class="screen__background__shape screen__background__shape4"></span>
+				<span class="screen__background__shape screen__background__shape3"></span>		
+				<span class="screen__background__shape screen__background__shape2"></span>
+				<span class="screen__background__shape screen__background__shape1"></span>
+			</div>		
+		</div>
+	</div>
+</div>
+<input type="text" (keydown)="keyrole($event)">

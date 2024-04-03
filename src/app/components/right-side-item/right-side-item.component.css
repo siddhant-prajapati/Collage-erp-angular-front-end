@@ -1,0 +1,12 @@
+.list-item-width{
+    width: 100%;
+    
+}
+
+.list-group {
+    width: 300%;
+}
+
+.list-group-item:hover {
+    background-color: #e2e2e2;
+}

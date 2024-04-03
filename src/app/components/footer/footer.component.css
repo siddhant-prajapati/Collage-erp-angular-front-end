@@ -1,0 +1,22 @@
+.footerBg {
+    background-color: #e2e2e2;
+}
+
+.bottom-part {
+    text-align: center;
+    border-top: 1px solid gray;
+}
+
+.footer-info {
+    text-align: center;
+}
+
+@media screen and (max-width : 700px){
+    .navbar-brand {
+        display: none;
+    }
+    span {
+        display: block;
+        width: 100%;
+    }
+}

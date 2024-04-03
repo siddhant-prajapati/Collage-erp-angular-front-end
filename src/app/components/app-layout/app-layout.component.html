@@ -1,0 +1,28 @@
+<div class="layout">
+  <div class="header">
+    <app-header></app-header>
+</div>
+  
+  <div class="topnav">
+    <app-navigation-bar></app-navigation-bar>
+  </div>
+  
+  <div class="row">
+    <!-- <div class="column side">
+        <app-right-side-item></app-right-side-item>
+    </div>
+     -->
+    <div class="column middle">
+      <router-outlet></router-outlet>
+    </div>
+    
+    <!-- <div class="column side">
+      <h2>Side</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+    </div> -->
+  </div>
+
+  <div class="footer">
+    <app-footer></app-footer>
+  </div>
+</div>

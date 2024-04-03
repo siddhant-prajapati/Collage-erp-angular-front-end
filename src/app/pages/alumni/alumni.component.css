@@ -1,0 +1,45 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    padding: 10px;
+    max-width: 100%;
+  }
+  .grid-item {
+    display: grid;
+    grid-template-columns: 30% 60%;
+    background-color: aliceblue;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 20px;
+  }
+
+  .profile-pic {
+    width: auto;
+  }
+
+  .profile-pic img {
+    object-fit: cover;
+    width: 195px;
+    height: 200px;
+  }
+  .data {
+    width: auto;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  tr {
+    margin: 2px;
+    padding: 2px;
+  }
+
+  td {
+    margin: 2px;
+    padding: 2px;
+  }
+
+  p {
+    font-size: large;
+  }

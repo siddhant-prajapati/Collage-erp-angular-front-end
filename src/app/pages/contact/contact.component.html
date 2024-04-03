@@ -1,0 +1,68 @@
+<h1>Contact Us</h1>
+<div>
+    <table>
+        <tr>
+            <td><b>Address </b></td>
+            <td>mortimer smith, 1234 street name st., city, state zip code: 123456</td>
+        </tr>
+        <tr>
+            <td><b>Email </b></td>
+            <td>example&#64;gmail.com</td>
+        </tr>
+        <tr>
+            <td colspan="2">If you have any query, ask us using gmail Id <br>
+
+                <form (ngSubmit)="sendQuery(contact)" #contact="ngForm">
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input 
+                            type="email" 
+                            class="form-control" 
+                            name="recipient"
+                            id="exampleInputEmail1" 
+                            placeholder="Enter your email address here"
+                            aria-describedby="emailHelp"
+                            ngModel
+                        required>
+                        <div id="emailHelp" class="form-text">We ensure to secure your data.</div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="inputSubject" class="form-label">Subject</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            name="subject"
+                            id="inputSubject" 
+                            placeholder="Enter subject of email"
+                            ngModel
+                        />
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Your Query ,suggestions and Feedback</label>
+                        <textarea 
+                            class="form-control" 
+                            id="exampleFormControlTextarea1" 
+                            rows="3" 
+                            name="msgBody"
+                            ngModel>
+
+                        </textarea>
+                      </div>
+                      <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                        <label class="form-check-label" for="exampleCheck1">
+                            <a routerLink="">
+                                I am accepting all the terms and conditions
+                            </a>
+                        </label>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </td>
+        </tr>
+    </table>
+</div>

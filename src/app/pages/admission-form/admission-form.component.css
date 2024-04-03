@@ -1,0 +1,47 @@
+.admmision-fm {
+    width: 500px;
+    background-color: white;
+    align-items: center;
+    position: relative;
+    margin: auto;
+}
+input[type=date] , #birthDate, textarea, .form-control, button{
+    width: 90%;
+    position: relative;
+    margin: auto;
+}
+
+button {
+    margin-left: 30px;
+}
+
+textarea {
+    width: auto;
+    margin-left: 30px;
+}
+
+h5 {
+    margin-left: 30px;
+}
+
+input[type=radio] {
+    display: block;
+}
+
+.user-name {
+    padding: 5px;
+    position: relative;
+    margin-left : 20px;
+    display: grid;
+    grid-template-columns: 32% 32% 32%; 
+}
+
+.form-check {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    margin-right: 30%;
+}
+
+.user-ele {
+    margin: 5px;
+}

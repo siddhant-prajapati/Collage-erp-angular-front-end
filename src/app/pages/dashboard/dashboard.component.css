@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
+
+.container {
+  margin-top: 5%;
+  width: 100%;
+  height: auto;
+  padding: 50px;
+}
+.first_line,
+.second_line {
+  white-space: nowrap; /* keep text in one line */
+  overflow: hidden; /* hide text behind the cursor */
+  margin: 10px auto;
+  font-family: "Major Mono Display", monospace;
+  font-size: 10vm;
+  font-weight: bold;
+}
+
+@keyframes typewriter_1 {
+    from {
+      width: 0;
+    }
+    to {
+      width: 450px;
+    }
+  }
+  @keyframes typewriter_2 {
+    from {
+      width: 0;
+    }
+    to {
+      width: 520px;
+    }
+  }
+
+
+  .first_line {
+    border-right: 2px solid rgba(17, 17, 17, 0.9);
+    /* define animation types for text + cursor */
+    animation: typewriter_1 6s steps(25) 1s 1 normal both, first_cursor 800ms steps(25) 8;
+  }
+  .second_line {
+    border-right: 2px solid rgba(17, 17, 17, 0.9);
+    /* define animation types for text + cursor */
+    animation: typewriter_2 5s steps(31) 1s 1 normal both, second_cursor 900ms steps(31) infinite;
+    -webkit-animation-delay: 7s;
+    animation-delay: 7s;
+  }
+
+  h1 {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    color: gray;
+  }
+
+  .mission {
+    margin-top: 5%;
+    padding: 70px;
+  }
+
+  li {
+    font-size: x-large;
+  }
+
+  @media screen and (max-width :800px){
+    h1 {
+        margin: 10px 0;
+        padding: 10px 0;
+      }
+      li {
+        font-size: 20px;
+      }
+  }
+
+  @media screen and (max-width : 600px){
+    @keyframes typewriter_1 {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+      @keyframes typewriter_2 {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      .container {
+        padding: 50px 0;
+      }
+
+      li {
+        font-size: 15px;
+      }
+  }
+
+  

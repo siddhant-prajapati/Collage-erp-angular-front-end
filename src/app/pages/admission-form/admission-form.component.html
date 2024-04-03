@@ -1,0 +1,63 @@
+<div class="admmision-fm">
+  <form>
+    <app-form-header></app-form-header>
+    <h5>Name</h5>
+    <div class="mb-3 user-name" >
+      <div class="user-ele">
+        <input type="text" class="form-control" name="firstName"  aria-describedby="first">
+        <div id="first" class="form-text">First name</div>
+      </div>
+      <div class="user-ele">
+        <input type="text" class="form-control" name="middleName"  aria-describedby="middle">
+        <div id="middle" class="form-text">Middle Name</div>
+      </div>
+      <div class="user-ele">
+        <input type="text" class="form-control" name="lastName" aria-describedby="last">
+        <div id="last" class="form-text">Last Name</div>
+      </div>
+      
+    </div>
+    <br>
+    <div class="mb-3">
+      <h5>Birth Date</h5>
+      <input type="date" class="form-control" name="birthDate"  aria-describedby="birthDate">
+      <div id="birthDate" class="form-text">Enter Birth Date</div>
+    </div>
+    <br>
+        
+    <div class="mb-3 form-check">
+        <b>Gender</b> 
+        <input type="radio" name="Gender" value="m"> Male
+        <input type="radio" name="Gender" value="f"> Female
+    </div>
+    <br>
+
+    <div class="mb-3 ">
+         <h5>Address</h5>
+        <textarea name="address" id="" cols="50" rows="5" placeholder="Enter your Address" class="form-control"></textarea>
+    </div>  
+    <br>
+        <h5>Mobile Number </h5>
+        <input type="text" name="mobileNo" class="form-control" placeholder="Enter Mobile Number">
+    <br>
+        <div class="mb-3 ">
+        <h5>In which department you want to get Admission</h5>
+        <select id="department" name="department" class="form-control">
+            <option value="computer">Computer</option>
+            <option value="it">Information Technology</option>
+            <option value="chemical">Chemical</option>
+            <option value="civil">Civil</option>
+            <option value="electrical">Electrical</option>
+          </select>
+    </div>
+    <br>
+
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <br>
+
+    
+  </form>
+  
+</div>

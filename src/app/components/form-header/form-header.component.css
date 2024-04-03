@@ -1,0 +1,9 @@
+.fm-head {
+    display: grid;
+    grid-template-columns: 30% 60%;
+}
+
+.fm-head-element img {
+    width: 100px;
+    height: 100px;
+}

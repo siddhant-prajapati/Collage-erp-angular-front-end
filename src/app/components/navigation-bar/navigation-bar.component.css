@@ -1,0 +1,49 @@
+/* Style the topnav links */
+a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: #ddd; 
+  }
+  
+  /* Change color on hover */
+   a:hover {
+    color: white;
+    background-color: rgb(68, 68, 216);
+  }
+
+  .text-color {
+    color: black;
+  }
+
+  button   {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: #ddd; 
+    z-index: 1;
+  }
+
+.d-inline-block button{
+  z-index: 1;
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 11px 16px;
+}
+
+@media screen and (max-width : 700px){
+  #contact {
+    display: none;
+  }
+}
+
+@media screen and (max-width : 600px){
+  #alumni {
+    display: none;
+  }
+}
