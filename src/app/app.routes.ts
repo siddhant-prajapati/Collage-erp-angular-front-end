@@ -55,7 +55,8 @@ export const routes: Routes = [
             },
             { 
                 path : 'about', 
-                component : AboutComponent, 
+                //component : AboutComponent,
+                loadComponent : () => import('./pages/about/about.component').then(c => c.AboutComponent), 
                 children : [
                     { 
                         path : '', 
@@ -94,7 +95,8 @@ export const routes: Routes = [
             },
             { 
                 path : 'department', 
-                component : DepartmentComponent ,
+                //component : DepartmentComponent ,
+                loadComponent : () => import('./pages/department/department.component').then(c => c.DepartmentComponent),
                 children : [
                     {
                         path : '',
@@ -102,7 +104,8 @@ export const routes: Routes = [
                     },
                     { 
                         path : 'computer', 
-                        component : ComputerComponent, 
+                        //component : ComputerComponent, 
+                        loadComponent : () => import('./pages/department/computer/computer.component').then(c => c.ComputerComponent),
                         title : "V.V.P. Engineering Collage-Computer",
                         children : [
                             {
@@ -140,7 +143,8 @@ export const routes: Routes = [
                     },
                     { 
                         path : 'it', 
-                        component : ItComponent, 
+                        //component : ItComponent,
+                        loadComponent : () => import('./pages/department/it/it.component').then(c => c.ItComponent), 
                         title : "V.V.P. Engineering Collage-IT",
                         children : [
                             {
@@ -176,7 +180,8 @@ export const routes: Routes = [
                     },
                     { 
                         path : 'civil', 
-                        component : CivilComponent, 
+                        //component : CivilComponent,
+                        loadComponent : () => import('./pages/department/civil/civil.component').then(c => c.CivilComponent), 
                         title : "V.V.P. Engineering Collage-Civil",
                         children : [
                             {
@@ -211,7 +216,8 @@ export const routes: Routes = [
                     },
                     { 
                         path : 'chemical', 
-                        component : ChemicalComponent, 
+                        //component : ChemicalComponent, 
+                        loadComponent : () => import('./pages/department/chemical/chemical.component').then(c => c.ChemicalComponent),
                         title : "V.V.P. Engineering Collage-Chemical",
                         children : [
                             {
@@ -246,7 +252,8 @@ export const routes: Routes = [
                     },
                     { 
                         path : 'mechanical', 
-                        component : MechanicalComponent, 
+                        //component : MechanicalComponent,
+                        loadComponent : () => import('./pages/department/mechanical/mechanical.component').then(c => c.MechanicalComponent), 
                         title : "V.V.P. Engineering Collage-Mechanical",
                         children : [
                             {
@@ -282,7 +289,8 @@ export const routes: Routes = [
                     },
                     {
                         path : 'electrical',
-                        component :ElectricalComponent,
+                        //component :ElectricalComponent,
+                        loadComponent : () => import('./pages/department/electrical/electrical.component').then(c => c.ElectricalComponent),
                         title : "V.V.P. Engineering Collage-Electrical",
                         children : [
                             {
@@ -319,7 +327,8 @@ export const routes: Routes = [
             },
             {
                 path : 'account',
-                component : UserProfileComponent,
+                //component : UserProfileComponent,
+                loadComponent : () => import('./pages/user-profile/user-profile.component').then(c => c.UserProfileComponent),
                 children : [
                     {
                         path : 'student/update',
@@ -350,15 +359,24 @@ export const routes: Routes = [
     },
     {
         path : 'login', 
-        component : LoginComponent , 
+        //component : LoginComponent ,
+        loadComponent : () => import('./pages/login/login.component').then(c => c.LoginComponent), 
         title : "V.V.P. Engineering Collage -Login",
     },
-    { path : 'forget' , component : ForgetPasswordComponent },
-    {
-        path : 'signup', component : SignupComponent, title : "V.V.P. Engineering Collage -SignUp"
+    { 
+        path : 'forget' , 
+        loadComponent : () => import('./pages/login/forget-password/forget-password.component').then(c => c.ForgetPasswordComponent),
+        //component : ForgetPasswordComponent 
     },
     {
-        path : '**', component : PageNotFoundComponent
+        path : 'signup', 
+        component : SignupComponent, 
+        title : "V.V.P. Engineering Collage -SignUp"
+    },
+    {
+        path : '**', 
+        //component : PageNotFoundComponent,
+        loadComponent : () => import('./pages/page-not-found/page-not-found.component').then(c => c.PageNotFoundComponent),
     }
     
 ];
