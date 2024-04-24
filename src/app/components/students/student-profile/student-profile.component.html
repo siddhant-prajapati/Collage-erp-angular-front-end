@@ -1,0 +1,47 @@
+
+<h2>List of Students in Computer Department</h2>
+
+    @for (student of students ; track student.studentId){
+        <div class="user-profile">
+        <div classs="profile-image">
+            <img 
+                src="../../../assets/images/Profile-image/{{student.profilePic}}" 
+                alt="student-profile-picture"
+                (error)="handleImageError($event)"
+            />
+        </div>
+        <div class="user-details">
+            <table>
+                <tr>
+                    <td>Student Name</td>
+                    <td>{{student.studentName}}</td>
+                </tr>
+                <tr>
+                    <td>Mobile No</td>
+                    <td>{{student.mobileNo}}</td>
+                </tr>
+                <tr>
+                    <td>Department</td>
+                    <td>{{student.department}}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>{{student.address}}</td>
+                </tr>
+                <tr>
+                    <td>Current Sem</td>
+                    <td>{{student.semester}}</td>
+                </tr>
+                <tr>
+                    <td>Student Email</td>
+                    <td>{{student.email}}</td>
+                </tr>
+                <tr>
+                    <td>Student BirthDate</td>
+                    <td>{{student.birthDate}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    }
+

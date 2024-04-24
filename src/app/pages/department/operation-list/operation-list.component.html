@@ -1,0 +1,41 @@
+<ul>
+    <li>
+        <mat-expansion-panel 
+        *ngIf="role==='admin' || (role==='staff' && loginDepartment===department)"
+        (opened)="panelOpenState = true" 
+        (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+            Students
+            </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul>
+                <li><a [routerLink]="department+'/students/all'">Students List</a></li>
+                <li><a [routerLink]="department+'/students/erp'">Student Erp</a></li>
+                <li><a [routerLink]="department+'/attendance/student'">Fill Attendance</a></li>
+                <li><a [routerLink]="department+'/students/exam'">Submit Exam marks</a></li>
+            </ul>
+        </mat-expansion-panel>
+    </li>
+    <li>
+        <mat-expansion-panel 
+        *ngIf="role==='admin'"
+        (opened)="panelOpenState = true" 
+        (closed)="panelOpenState = false">
+
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+            Faculty
+            </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul>
+                <li><a [routerLink]="department+'/faculties/erp'">Faculty Erp</a></li>
+                <li>
+                    <a [routerLink]="department+'/attendance/staff'">Fill Attendance</a>
+                </li>
+            </ul>
+            
+        </mat-expansion-panel>
+    </li>
+    
+</ul>

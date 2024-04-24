@@ -11,9 +11,18 @@ export class ContactService {
   constructor(private http : HttpClient) { }
 
   async sendMessage(message : object){
+    const token = sessionStorage.getItem("token")
     try{
       console.log(message)
-      const responce = await axios.post(devEnvironment.contactUrl+"sendMail", message);
+      const responce = await axios.post(
+        devEnvironment.contactUrl+"sendMail",
+        message,
+        {
+          headers : {
+            'Authorization' : `Bearer ${token}`
+          }
+        }
+      );
       if(responce){
         console.log(responce.data)
       }

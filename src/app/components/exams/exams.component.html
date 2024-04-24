@@ -1,0 +1,30 @@
+<h1>Exam Section</h1>
+
+<h4>Exam section is perform create, update, read and delete operation</h4>
+
+<button 
+    mat-flat-button 
+    style="color: white; background-color: blue;" 
+    (click)="toggleForm()">
+    Add Marks
+</button>
+
+<div class="find-student">
+    <mat-form-field appearance="outline"> 
+        <mat-label>Find Student Student Mark by studentId</mat-label>
+       <input matInput placeholder="Placeholder" #exam>
+       <mat-hint>Enter Student Id</mat-hint>
+   </mat-form-field>
+   <button mat-flat-button style="color: white; background-color: green;" (click)="findExamMarks(exam.value)">
+        Search
+    </button>   
+</div>
+<br>
+<br>
+<div class="exam-table" *ngIf="this.httpService.studentExams[0]">
+    <app-exam-details></app-exam-details>
+</div>
+
+<div>
+    <app-submit-exam-form *ngIf="showElement"></app-submit-exam-form>
+</div>

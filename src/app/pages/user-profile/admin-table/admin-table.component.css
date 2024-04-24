@@ -1,0 +1,12 @@
+tr, td {
+    padding: 10px;
+    margin: 10px;
+}
+
+.admin-table {
+    position: relative;
+}
+
+table {
+    margin: auto;
+}

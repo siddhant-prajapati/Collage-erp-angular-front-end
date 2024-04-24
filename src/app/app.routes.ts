@@ -12,39 +12,353 @@ import { GoverningBodyComponent } from './pages/about/governing-body/governing-b
 import { MessageChairmanComponent } from './pages/about/message-chairman/message-chairman.component';
 import { MessagePrincipalComponent } from './pages/about/message-principal/message-principal.component';
 import { DefaultTextComponent } from './pages/about/default-text/default-text.component';
+import { ComputerComponent } from './pages/department/computer/computer.component';
+import { ItComponent } from './pages/department/it/it.component';
+import { CivilComponent } from './pages/department/civil/civil.component';
+import { ChemicalComponent } from './pages/department/chemical/chemical.component';
+import { MechanicalComponent } from './pages/department/mechanical/mechanical.component';
+import { DepartmentComponent } from './pages/department/department.component';
+import { FacultyProfileComponent } from './components/staffs/faculty-profile/faculty-profile.component';
+import { StudentProfileComponent } from './components/students/student-profile/student-profile.component';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { AllDepartmentInfoComponent } from './pages/department/all-department-info/all-department-info.component';
+import { ElectricalComponent } from './pages/department/electrical/electrical.component';
+import { authGuard } from './guards/auth.guard';
+import { UpdateStaffFormComponent } from './components/staffs/update-staff-form/update-staff-form.component';
+import { UpdateStudentFormComponent } from './components/students/update-student-form/update-student-form.component';
+import { FillStudentAttendanceComponent } from './components/fill-attendance/fill-student-attendance/fill-student-attendance.component';
+import { FillStaffAttendanceComponent } from './components/fill-attendance/fill-staff-attendance/fill-staff-attendance.component';
+import { StudentErpComponent } from './components/students/student-erp/student-erp.component';
+import { StudentsComponent } from './components/students/students.component';
+import { AddStudentComponent } from './components/students/add-student/add-student.component';
+import { StudentFormComponent } from './components/students/student-erp/student-form/student-form.component';
+import { StaffErpComponent } from './components/staffs/staff-erp/staff-erp.component';
+import { StaffsComponent } from './components/staffs/staffs.component';
+import { ForgetPasswordComponent } from './pages/login/forget-password/forget-password.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { staffAuthGuard } from './guards/staff-auth.guard';
+import { adminAuthGuard } from './guards/admin-auth.guard';
+import { UpdateAdminFormComponent } from './components/admins/update-admin-form/update-admin-form.component';
+import { CreateAdminFormComponent } from './components/admins/create-admin-form/create-admin-form.component';
+import { ExamsComponent } from './components/exams/exams.component';
 
 export const routes: Routes = [
-    { path : '' , component : FirstPageComponent},
+    { path : '' , component : FirstPageComponent, title : "V.V.P. Engineering Collage"},
     { 
         path : 'layout', 
         component : AppLayoutComponent,
         children : [
-            { path : '', component : DashboardComponent, title : "V.V.P. Engineering Collage-Home"},
+            { 
+                path : '', 
+                component : DashboardComponent, 
+                title : "V.V.P. Engineering Collage-Home"
+            },
             { 
                 path : 'about', 
                 component : AboutComponent, 
                 children : [
-                    { path : '', component : DefaultTextComponent },
-                    { path : 'governing-body', component : GoverningBodyComponent},
-                    { path : 'message-chairman', component : MessageChairmanComponent},
-                    { path : 'message-principal', component : MessagePrincipalComponent}
+                    { 
+                        path : '', 
+                        component : DefaultTextComponent 
+                    },
+                    { 
+                        path : 'governing-body', 
+                        component : GoverningBodyComponent
+                    },
+                    { 
+                        path : 'message-chairman', 
+                        component : MessageChairmanComponent
+                    },
+                    { 
+                        path : 'message-principal', 
+                        component : MessagePrincipalComponent
+                    }
                 ],
                 title : "V.V.P. Engineering Collage-About"
             },
-            { path : 'admission', component : AdmissionFormComponent, title :"V.V.P. Engineering Collage-Admission"},
-            { path : 'alumni', component : AlumniComponent, title : "V.V.P. Engineering Collage-Alumni"},
-            { path : 'contact', component : ContactComponent, title : "V.V.P. Engineering Collage-Contact"}
+            { 
+                path : 'admission', 
+                component : AdmissionFormComponent, 
+                title :"V.V.P. Engineering Collage-Admission"
+            },
+            { 
+                path : 'alumni', 
+                component : AlumniComponent, 
+                title : "V.V.P. Engineering Collage-Alumni"
+            },
+            { 
+                path : 'contact', 
+                component : ContactComponent, 
+                title : "V.V.P. Engineering Collage-Contact",
+                canActivate : [authGuard]
+            },
+            { 
+                path : 'department', 
+                component : DepartmentComponent ,
+                children : [
+                    {
+                        path : '',
+                        component : AllDepartmentInfoComponent,
+                    },
+                    { 
+                        path : 'computer', 
+                        component : ComputerComponent, 
+                        title : "V.V.P. Engineering Collage-Computer",
+                        children : [
+                            {
+                                path : 'faculties',
+                                component : StaffsComponent,
+                                children : [
+                                    { path : 'all', component : FacultyProfileComponent },
+                                    { path : 'erp', component : StaffErpComponent,canActivate : [authGuard, adminAuthGuard],}
+                                ]
+                            },
+                            {
+                                path : 'students',
+                                component : StudentsComponent,
+                                canActivate : [authGuard, staffAuthGuard],
+                                children : [
+                                    { path : 'all', component : StudentProfileComponent},
+                                    { path : 'erp', component : StudentErpComponent},
+                                    { path : 'exam', component : ExamsComponent ,canActivate : [authGuard, staffAuthGuard],},
+                                ]
+                            },
+                            {
+                                path : 'attendance',
+                                canActivate : [authGuard],
+                                children : [
+                                    {
+                                        path : 'student', component : FillStudentAttendanceComponent, canActivate : [authGuard, staffAuthGuard],
+                                    },
+                                    {
+                                        path : 'staff', component : FillStaffAttendanceComponent, canActivate : [authGuard, adminAuthGuard],
+                                    }
+                                ]
+                            },
+                            
+                        ]
+                    },
+                    { 
+                        path : 'it', 
+                        component : ItComponent, 
+                        title : "V.V.P. Engineering Collage-IT",
+                        children : [
+                            {
+                                path : 'faculties',
+                                component : StaffsComponent,
+                                children : [
+                                    { path : 'all', component : FacultyProfileComponent },
+                                    { path : 'erp', component : StaffErpComponent, canActivate : [authGuard, adminAuthGuard],}
+                                ]
+                            },
+                            {
+                                path : 'students',
+                                component : StudentsComponent,
+                                canActivate : [authGuard, staffAuthGuard],
+                                children : [
+                                    { path : 'all', component : StudentProfileComponent},
+                                    { path : 'erp', component : StudentErpComponent},
+                                    { path : 'exam', component : ExamsComponent ,canActivate : [authGuard, staffAuthGuard],},
+                                ]
+                            },
+                            {
+                                path : 'attendance/student',
+                                canActivate : [authGuard, staffAuthGuard],
+                                component : FillStudentAttendanceComponent,
+                        
+                            },
+                            {
+                                path : 'attendance/staff',
+                                canActivate : [authGuard, adminAuthGuard],
+                                component : FillStaffAttendanceComponent
+                            }
+                        ]
+                    },
+                    { 
+                        path : 'civil', 
+                        component : CivilComponent, 
+                        title : "V.V.P. Engineering Collage-Civil",
+                        children : [
+                            {
+                                path : 'faculties',
+                                component : StaffsComponent,
+                                children : [
+                                    { path : 'all', component : FacultyProfileComponent },
+                                    { path : 'erp', component : StaffErpComponent,canActivate : [authGuard, adminAuthGuard],}
+                                ]
+                            },
+                            {
+                                path : 'students',
+                                component : StudentsComponent,
+                                canActivate : [authGuard, staffAuthGuard],
+                                children : [
+                                    { path : 'all', component : StudentProfileComponent},
+                                    { path : 'erp', component : StudentErpComponent},
+                                    { path : 'exam', component : ExamsComponent ,canActivate : [authGuard, staffAuthGuard],},
+                                ]
+                            },
+                            {
+                                path : 'attendance/student',
+                                canActivate : [authGuard, staffAuthGuard],
+                                component : FillStudentAttendanceComponent
+                            },
+                            {
+                                path : 'attendance/staff',
+                                canActivate : [authGuard, adminAuthGuard],
+                                component : FillStaffAttendanceComponent
+                            }
+                        ]
+                    },
+                    { 
+                        path : 'chemical', 
+                        component : ChemicalComponent, 
+                        title : "V.V.P. Engineering Collage-Chemical",
+                        children : [
+                            {
+                                path : 'faculties',
+                                component : StaffsComponent,
+                                children : [
+                                    { path : 'all', component : FacultyProfileComponent },
+                                    { path : 'erp', component : StaffErpComponent,canActivate : [authGuard, adminAuthGuard],}
+                                ]
+                            },
+                            {
+                                path : 'students',
+                                component : StudentsComponent,
+                                canActivate : [authGuard, staffAuthGuard],
+                                children : [
+                                    { path : 'all', component : StudentProfileComponent},
+                                    { path : 'erp', component : StudentErpComponent},
+                                    { path : 'exam', component : ExamsComponent ,canActivate : [authGuard, staffAuthGuard],},
+                                ]
+                            },
+                            {
+                                path : 'attendance/student',
+                                canActivate : [authGuard, staffAuthGuard],
+                                component : FillStudentAttendanceComponent
+                            },
+                            {
+                                path : 'attendance/staff',
+                                canActivate : [authGuard, adminAuthGuard],
+                                component : FillStaffAttendanceComponent
+                            }
+                        ]
+                    },
+                    { 
+                        path : 'mechanical', 
+                        component : MechanicalComponent, 
+                        title : "V.V.P. Engineering Collage-Mechanical",
+                        children : [
+                            {
+                                path : 'faculties',
+                                component : StaffsComponent,
+                                children : [
+                                    { path : 'all', component : FacultyProfileComponent },
+                                    { path : 'erp', component : StaffErpComponent,canActivate : [authGuard, adminAuthGuard],}
+                                ]
+                            },
+                            {
+                                path : 'students',
+                                component : StudentsComponent,
+                                canActivate : [authGuard, staffAuthGuard],
+                                children : [
+                                    { path : 'all', component : StudentProfileComponent},
+                                    { path : 'erp', component : StudentErpComponent},
+                                    { path : 'exam', component : ExamsComponent ,canActivate : [authGuard, staffAuthGuard],},
+                                ]
+                            },
+                            {
+                                path : 'attendance/student',
+                                canActivate : [authGuard, staffAuthGuard],
+                                component : FillStudentAttendanceComponent,
+                                
+                            },
+                            {
+                                path : 'attendance/staff',
+                                canActivate : [authGuard, adminAuthGuard],
+                                component : FillStaffAttendanceComponent
+                            }
+                        ]
+                    },
+                    {
+                        path : 'electrical',
+                        component :ElectricalComponent,
+                        title : "V.V.P. Engineering Collage-Electrical",
+                        children : [
+                            {
+                                path : 'faculties',
+                                component : StaffsComponent,
+                                children : [
+                                    { path : 'all', component : FacultyProfileComponent },
+                                    { path : 'erp', component : StaffErpComponent ,canActivate : [authGuard, adminAuthGuard],},
+                                ]
+                            },
+                            {
+                                path : 'students',
+                                component : StudentsComponent,
+                                canActivate : [authGuard, staffAuthGuard],
+                                children : [
+                                    { path : 'all', component : StudentProfileComponent},
+                                    { path : 'erp', component : StudentErpComponent},
+                                    { path : 'exam', component : ExamsComponent ,canActivate : [authGuard, staffAuthGuard],},
+                                ]
+                            },
+                            {
+                                path : 'attendance/student',
+                                canActivate : [authGuard, staffAuthGuard],
+                                component : FillStudentAttendanceComponent
+                            },
+                            {
+                                path : 'attendance/staff',
+                                canActivate : [authGuard, adminAuthGuard],
+                                component : FillStaffAttendanceComponent
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                path : 'account',
+                component : UserProfileComponent,
+                children : [
+                    {
+                        path : 'student/update',
+                        component : UpdateStudentFormComponent
+                    },
+                    {
+                        path : 'staff/update',
+                        component : UpdateStaffFormComponent
+                    },
+                    {
+                        path : 'admin/update',
+                        component : UpdateAdminFormComponent
+                    },
+                    {
+                        path : 'admin/create',
+                        component : UpdateAdminFormComponent
+                    }
+                ],
+                canActivate : [authGuard]
+            }
+            
         ],
         title : "V.V.P. Engineering Collage"
     },
     {
-        path : 'layout', redirectTo : 'layout/dashboard'
+        path : 'layout', 
+        redirectTo : 'layout/dashboard'
     },
     {
-        path : 'login', component : LoginComponent , title : "V.V.P. Engineering Collage -Login"
+        path : 'login', 
+        component : LoginComponent , 
+        title : "V.V.P. Engineering Collage -Login",
     },
+    { path : 'forget' , component : ForgetPasswordComponent },
     {
         path : 'signup', component : SignupComponent, title : "V.V.P. Engineering Collage -SignUp"
+    },
+    {
+        path : '**', component : PageNotFoundComponent
     }
     
 ];

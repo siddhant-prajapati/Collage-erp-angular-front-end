@@ -1,0 +1,53 @@
+img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+tr {
+    margin: 5px 10px;
+    padding: 5px 10px;
+}
+
+td {
+    margin: 5px 20px;
+    padding: 5px 20px;  
+}
+
+.user-profile {
+    display: grid;
+    grid-template-columns: 350px auto ;
+    border: 5px solid #e2e2e2;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 5px 5px 5px;
+}
+
+
+
+
+table {
+    font-size: 16px;
+}
+
+.btn {
+    margin: 5px;
+    padding: 5px;
+}
+
+.btn-primary {
+    background-color: green;
+    border-radius: 5px;
+}
+
+.btn-secondary {
+    background-color: red;
+    border-radius: 5px;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }

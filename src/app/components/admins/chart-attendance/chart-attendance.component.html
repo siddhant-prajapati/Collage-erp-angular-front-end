@@ -1,0 +1,40 @@
+<h1> Attendance Chart </h1>
+<form class="hw" [formGroup]="attendanceChartGroup">
+    <div>
+        <mat-form-field style="width: 300px;">
+            <mat-label>Select Department</mat-label>
+            <mat-select formControlName="department">
+                <mat-option value="computer" selected>Computer Engineering</mat-option>
+                <mat-option value="it">IT Engineering</mat-option>
+                <mat-option value="electrical">Electrical Engineering</mat-option>
+                <mat-option value="mechanical">Mechanical Engineering</mat-option>
+                <mat-option value="chemical">Chemical Engineering</mat-option>
+                <mat-option value="civil">Civil Engineering</mat-option>
+            </mat-select>
+            <!-- <span *ngIf="staffGroup.get('department')?.invalid && (staffGroup.get('department')?.dirty || staffGroup.get('department')?.touched || isFormValid)">
+                Department is required
+              </span> -->
+        </mat-form-field>
+    
+    </div>
+    
+      <div class="check-role">
+          <span><b>Role</b></span> 
+          <span><input type="radio" name="role" value="staff" formControlName="role"> Staff</span>
+          <span><input type="radio" name="role" value="student" formControlName="role"> Student</span>
+      </div>
+      <button 
+            mat-flat-button 
+            style="color: white; background-color: skyblue; width: fit-content;" 
+            (click)="showAttendanceDetails()">
+            Show Details
+      </button>
+      <br>
+</form>
+<div class="chart">
+    @if(attendanceChartGroup.value.role==='student'){
+        <app-student-chart></app-student-chart>
+    } @else {
+        <app-staff-chart></app-staff-chart>
+    }
+</div>

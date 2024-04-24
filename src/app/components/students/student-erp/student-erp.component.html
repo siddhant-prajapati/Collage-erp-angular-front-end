@@ -1,0 +1,32 @@
+<h1>Student ERP</h1>
+<h4>This is student erp here you can update student details, add new student as well as find student By Id</h4>
+
+<button 
+    mat-flat-button 
+    style="color: white; background-color: blue;" 
+    (click)="toggleForm()">
+    Add Student
+</button>
+
+<div class="find-student">
+    <mat-form-field appearance="outline"> 
+        <mat-label>Find Student By Id</mat-label>
+       <input matInput placeholder="Placeholder" #student>
+       <mat-hint>Enter Student Id</mat-hint>
+   </mat-form-field>
+   <button mat-flat-button style="color: white; background-color: green;" (click)="findStudent(student.value)">
+        Search
+    </button>   
+</div>
+
+
+@if (this.httpService.student){
+    <app-student-details></app-student-details>
+}
+
+    <br>
+<br>
+<div *ngIf="showElement">
+    <app-add-student></app-add-student>
+</div>
+  

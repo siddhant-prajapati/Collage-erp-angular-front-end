@@ -1,11 +1,13 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 @Component({
   selector: 'app-first-page',
   standalone: true,
-  imports: [NgbCarouselModule, RouterLink],
+  imports: [NgbCarouselModule, RouterLink, NgOptimizedImage],
   templateUrl: './first-page.component.html',
   styleUrl: './first-page.component.css',
 })

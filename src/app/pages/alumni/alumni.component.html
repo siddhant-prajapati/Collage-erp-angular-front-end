@@ -3,45 +3,14 @@
 
 <div class="grid-container">
     
-        @for (staff of staffList ; track staff.staffId ; let i = $index ) {
+        @for (staff of this.apiRequestService.staffList ; track staff.staffId ; let i = $index ) {
             <div class="grid-item">
                 <div class="profile-pic">
-                    <img src="../../../assets/images/Profile-image/profile{{i+1}}.jpg" alt="profile image" >
+                    <img src="../../../assets/images/Profile-image/staff-{{staff.staffId}}.jpg" alt="profile image" >
                 </div>
                 <div class="data">
-                    <!-- <table>
-                        <tr>
-                            <td>Staff ID : </td>
-                            <td>{{staff.staffId}}</td>
-                        </tr>
-                        <tr>
-                            <td>Staff Name :</td>
-                            <td>{{staff.staffName}}</td>
-                        </tr>
-                        <tr>
-                            <td>Department : </td>
-                            <td>{{staff.department}} </td>
-                        </tr>
-                        <tr>
-                            <td>Mobile Number :</td>
-                            <td>{{staff.mobileNo}} </td>
-                        </tr>
-                        <tr>
-                            <td>Address : </td>
-                            <td>{{staff.address}}</td>
-                        </tr>
-                        <tr>
-                            <td>Email : </td>
-                            <td>{{staff.email}} </td>
-                        </tr>
-                        <tr>
-                            <td>Attendance : </td>
-                            <td>{{staff.attendance}} </td>
-                        </tr>
-                    </table> -->
-                    
                     <p>
-                        Meet {{staff.staffName}}, a dedicated member of our team in the {{staff.department}} Department. 
+Meet {{staff.staffName}}, a dedicated member of our team in the {{staff.department}} Department. 
 With a wealth of knowledge and expertise in {{staff.department}} engineering, 
 {{staff.staffName}} brings invaluable contributions to our institution. 
 Residing in {{staff.address}}, {{staff.staffName}} can be reached at {{staff.mobileNo}} or via email at 

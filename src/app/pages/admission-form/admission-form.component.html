@@ -1,59 +1,170 @@
 <div class="admmision-fm">
-  <form>
+  <form [formGroup]="admissionGroup">
     <app-form-header></app-form-header>
     <h5>Name</h5>
     <div class="mb-3 user-name" >
       <div class="user-ele">
-        <input type="text" class="form-control" name="firstName"  aria-describedby="first">
-        <div id="first" class="form-text">First name</div>
+        <input 
+          type="text" 
+          class="form-control" 
+          placeholder="First Name"  
+          aria-describedby="first"
+          formControlName="firstName" 
+          required="required" 
+        />
+        <div id="first" class="form-text">
+          <span *ngIf="admissionGroup.get('firstName')?.invalid && (admissionGroup.get('firstName')?.dirty || admissionGroup.get('firstName')?.touched || isFormValid)">
+            First name is required
+          </span>
+        </div>
       </div>
+
       <div class="user-ele">
-        <input type="text" class="form-control" name="middleName"  aria-describedby="middle">
-        <div id="middle" class="form-text">Middle Name</div>
+        <input 
+          type="text" 
+          class="form-control" 
+          placeholder="Middle Name"  
+          aria-describedby="middle"
+          formControlName="middleName" 
+          required="required"
+        />
+        <div id="middle" class="form-text">
+          <span *ngIf="admissionGroup.get('middleName')?.invalid && (admissionGroup.get('middleName')?.dirty || admissionGroup.get('middleName')?.touched || isFormValid)">
+            Middle name is required
+          </span>
+        </div>
       </div>
+
       <div class="user-ele">
-        <input type="text" class="form-control" name="lastName" aria-describedby="last">
-        <div id="last" class="form-text">Last Name</div>
+        <input 
+          type="text" 
+          class="form-control" 
+          name="lastName"
+          placeholder="Last Name" 
+          aria-describedby="last" 
+          formControlName="lastName" 
+          required="required"
+        />
+        <div id="last" class="form-text">
+          <span *ngIf="admissionGroup.get('lastName')?.invalid && (admissionGroup.get('lastName')?.dirty || admissionGroup.get('lastName')?.touched || isFormValid)">
+            Last name is required
+          </span>
+        </div>
       </div>
-      
     </div>
     <br>
+
+    <div class="mb-3">
+      <h5>Email</h5>
+      <input 
+        type="email" 
+        class="form-control" 
+        placeholder="Enter Email" 
+        aria-describedby="email"
+        formControlName="email" 
+        required="required" 
+        pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+      />
+      <div id="email" class="form-text ml">
+        <span *ngIf="admissionGroup.get('email')?.invalid && (admissionGroup.get('email')?.dirty || admissionGroup.get('email')?.touched || isFormValid)">
+          Email is required
+        </span>
+      </div>
+    </div>
+    <br>
+
     <div class="mb-3">
       <h5>Birth Date</h5>
-      <input type="date" class="form-control" name="birthDate"  aria-describedby="birthDate">
-      <div id="birthDate" class="form-text">Enter Birth Date</div>
+      <input 
+        type="date" 
+        class="form-control" 
+        name="birthDate" 
+        aria-describedby="birthDate"
+        formControlName="birthDate" 
+        required="required"
+      />
+      <div id="birthDate" class="form-text ml">
+        <span *ngIf="admissionGroup.get('birthDate')?.invalid && (admissionGroup.get('birthDate')?.dirty || admissionGroup.get('birthDate')?.touched || isFormValid)">
+          Birth Date is required
+        </span>
+      </div>
     </div>
     <br>
         
     <div class="mb-3 form-check">
         <b>Gender</b> 
-        <input type="radio" name="Gender" value="m"> Male
-        <input type="radio" name="Gender" value="f"> Female
+        <input type="radio" name="gender" value="m" formControlName="gender"> Male
+        <input type="radio" name="gender" value="f" formControlName="gender"> Female
     </div>
     <br>
 
     <div class="mb-3 ">
          <h5>Address</h5>
-        <textarea name="address" id="" cols="50" rows="5" placeholder="Enter your Address" class="form-control"></textarea>
+        <textarea 
+          name="address" 
+          cols="50"
+          area-describedby="address" 
+          rows="5" 
+          placeholder="Enter your Address" 
+          class="form-control" 
+          formControlName="address" 
+          required="required"
+        >
+        </textarea>
+        <div id="address" class="form-text ml">
+          <span *ngIf="admissionGroup.get('address')?.invalid && (admissionGroup.get('address')?.dirty || admissionGroup.get('address')?.touched || isFormValid)">
+            Address is required
+          </span>
+        </div>
     </div>  
     <br>
-        <h5>Mobile Number </h5>
-        <input type="text" name="mobileNo" class="form-control" placeholder="Enter Mobile Number">
-    <br>
-        <div class="mb-3 ">
-        <h5>In which department you want to get Admission</h5>
-        <select id="department" name="department" class="form-control">
-            <option value="computer">Computer</option>
-            <option value="it">Information Technology</option>
-            <option value="chemical">Chemical</option>
-            <option value="civil">Civil</option>
-            <option value="electrical">Electrical</option>
-          </select>
+
+    <div class="mb-3 ">
+      <h5>Mobile Number </h5>
+        <input 
+          type="text"
+          class="form-control" 
+          placeholder="Mobile number must be 10 number"
+          formControlName="mobileNo" 
+          required="required"
+          aria-describedby="mobileNo"
+          maxlength="10"
+          minlength="10"
+        />
+        <div id="mobileNo" class="form-text ml">
+          <span *ngIf="admissionGroup.get('mobileNo')?.invalid && (admissionGroup.get('mobileNo')?.dirty || admissionGroup.get('mobileNo')?.touched || isFormValid)">
+            Mobile No is invalid
+          </span>
+        </div>
     </div>
+        
+    <br>
+      <div class="mb-3 ">
+        <h5>In which department you want to get Admission</h5>
+        <select 
+          area-describedby="department" 
+          name="department" 
+          class="form-control" 
+          formControlName="department" 
+        required="required">
+          <option value="computer">Computer</option>
+          <option value="it">Information Technology</option>
+          <option value="chemical">Chemical</option>
+          <option value="civil">Civil</option>
+          <option value="electrical">Electrical</option>
+          <option value="mechanical">Mechanical</option>
+        </select>
+        <div id="department" class="form-text ml">
+          <span *ngIf="admissionGroup.get('department')?.invalid && (admissionGroup.get('department')?.dirty || admissionGroup.get('department')?.touched || isFormValid)">
+            Department is required
+          </span>
+        </div>
+    </div>
+    
     <br>
 
     <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" (click)="submitForm()">Submit</button>
     </div>
     <br>
 

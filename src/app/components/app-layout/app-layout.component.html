@@ -7,14 +7,31 @@
     <app-navigation-bar></app-navigation-bar>
   </div>
   
+  
   <div class="row">
     <!-- <div class="column side">
         <app-right-side-item></app-right-side-item>
     </div>
      -->
-    <div class="column middle">
-      <router-outlet></router-outlet>
-    </div>
+     @defer (on viewport) {
+      <div class="column middle">
+        <router-outlet></router-outlet>
+      </div>
+     }
+     @placeholder {
+      <div>
+        <h1>This is a placeholder</h1>
+      </div>
+     }
+     @loading {
+      <div class="">
+        <!-- <img src="../../../assets/images/loading.gif" alt="loading..." > -->
+        <h1>Loading...</h1>
+      </div>
+     }
+     @error {
+      <h1>Could not load the component</h1>
+     }
     
     <!-- <div class="column side">
       <h2>Side</h2>

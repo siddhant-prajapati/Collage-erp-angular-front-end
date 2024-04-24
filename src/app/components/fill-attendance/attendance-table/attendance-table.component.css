@@ -1,0 +1,31 @@
+tr , td{
+    margin: 10px;
+    padding: 10px;
+}
+
+
+.delete-attendance {
+    width: auto;
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid red;
+}
+
+table {
+    width: 60%;
+    height: 20%;
+}
+
+.attendance-table{
+    position: relative;
+}
+
+h3 {
+    text-align: center;
+}
+
+table {
+    margin: auto;
+}

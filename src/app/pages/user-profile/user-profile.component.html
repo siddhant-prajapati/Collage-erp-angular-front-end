@@ -1,0 +1,95 @@
+
+<div class="user-profile">
+    <div  *ngIf="role === 'admin'" class="admin-li">
+        <ul>
+            <li>
+                <a [routerLink]="role+'/update'">
+                    <button type="button" class="admin-btn" mdbRipple (click)="toggleForm()"> Update Profile</button>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="role+'/create'">
+                    <button type="button" class="admin-btn" mdbRipple (click)="toggleForm2()">Create new Admin</button>
+                </a>
+            </li>
+            <li>
+                <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">
+                    <button type="button" class="admin-btn" mdbRipple (click)="signOut()">Check Mails</button>
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="role+'/update'">
+                    <button type="button" class="admin-btn" mdbRipple (click)="signOut()">Sign Out</button>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- below div only for staff and student -->
+    <div class="profile-pic" *ngIf="role === 'staff' || role === 'student'">
+        <div class="pic" *ngIf="role === 'staff'">
+            <img 
+                src="../../../assets/images/Profile-image/{{this.httpService.staffProfile.profilePic}}" 
+                alt="user-profile"
+                (error)="handleImage($event)"
+            />
+            <button title="Change profile picture" (click)="toggleForm1()"><b>+</b></button>
+        </div>
+        
+        <div class="pic" *ngIf="role === 'student'">
+            <img 
+                src="../../../assets/images/Profile-image/{{this.studentService.studentProfile.profilePic}}" 
+                alt="user-profile"
+                (error)="handleImage($event)"
+            />
+            <button title="Change profile picture" (click)="toggleForm1()"><b>+</b></button>
+        </div>
+
+        <div *ngIf="showForm1" class="img-form">
+            <input type="file" (change)="changeProfilePic($event)"><br>
+            <button (click)="submitProfilePic()">Confirm</button>
+        </div>
+        
+        <a [routerLink]="role+'/update'">
+            <button type="button" class="btn btn-success " mdbRipple (click)="toggleForm()"> Update Profile</button>
+        </a>
+        <a [routerLink]="role+'/update'">
+            <button type="button" class="btn btn-danger" mdbRipple (click)="signOut()">Sign Out</button>
+        </a>
+    </div>
+
+    <div class="user-detail" *ngIf="!showForm">
+        <app-student-table *ngIf="role === 'student'"> </app-student-table>
+        <app-staff-table *ngIf="role === 'staff'"></app-staff-table>
+        <app-admin-table  *ngIf="role === 'admin'"></app-admin-table>
+    </div>
+
+    <div class="user-detail" *ngIf="showForm">
+        <app-update-student-form *ngIf="role === 'student'"></app-update-student-form>
+        <app-update-staff-form *ngIf="role === 'staff'"></app-update-staff-form>
+        <app-update-admin-form *ngIf="role === 'admin'" ></app-update-admin-form>
+    </div>
+    @if(showForm2){
+        <div>
+            <app-create-admin-form></app-create-admin-form>
+        </div>
+    } @else {
+        <div class="attendance">
+            <app-user-attendance [attendance] = "this.studentService.studentProfile.attendance"  *ngIf="role === 'student'"></app-user-attendance>
+            <app-user-attendance [attendance] = "this.httpService.staffProfile.attendance"  *ngIf="role === 'staff'"></app-user-attendance>
+        </div>
+    }
+
+</div>
+
+<hr>
+
+<section *ngIf="role === 'admin'">
+    <app-chart-attendance></app-chart-attendance>
+    <app-admin-pledge  class="pledge"></app-admin-pledge>
+</section>
+
+<!-- <div>
+    <h2>Student Examination Details</h2>
+    <app-exam-details></app-exam-details>
+</div> -->

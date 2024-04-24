@@ -1,0 +1,132 @@
+<div class="admmision-fm">
+    <form [formGroup]="studentUpdateGroup">
+      <app-form-header></app-form-header>
+      <h5>Name</h5>
+      <div class="mb-3" >
+        <div class="user-ele">
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Enter Name"  
+            aria-describedby="first"
+            formControlName="studentName" 
+            required="required" 
+            
+          />
+          <div id="first" class="form-text">
+            <span *ngIf="studentUpdateGroup.get('studentName')?.invalid && (studentUpdateGroup.get('studentName')?.dirty || studentUpdateGroup.get('studentName')?.touched || isFormValid)">
+              Name is required
+            </span>
+          </div>
+        </div>
+  
+      </div>
+      <br>
+  
+      <div class="mb-3">
+        <h5>Email</h5>
+        <input 
+          type="email" 
+          class="form-control" 
+          placeholder="Enter Email" 
+          aria-describedby="email"
+          formControlName="email" 
+          required="required" 
+          pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+        />
+        <div id="email" class="form-text ml">
+          <span *ngIf="studentUpdateGroup.get('email')?.invalid && (studentUpdateGroup.get('email')?.dirty || studentUpdateGroup.get('email')?.touched || isFormValid)">
+            Email is required
+          </span>
+        </div>
+      </div>
+      <br>
+
+      <div class="mb-3">
+        <h5>Password</h5>
+        <input 
+            type="password" 
+            class="form-control" 
+            name="password"
+            placeholder="Enter password" 
+            aria-describedby="passwd" 
+            formControlName="password" 
+            required="required"
+          />
+          <div id="last" class="form-text">
+            <span *ngIf="studentUpdateGroup.get('password')?.invalid && (studentUpdateGroup.get('password')?.dirty || studentUpdateGroup.get('password')?.touched || isFormValid)">
+              Password is required
+            </span>
+          </div>
+      </div>
+
+  
+      <div class="mb-3">
+        <h5>Birth Date</h5>
+        <input 
+          type="date" 
+          class="form-control" 
+          name="birthDate" 
+          aria-describedby="birthDate"
+          formControlName="birthDate" 
+          required="required"
+        />
+        <div id="birthDate" class="form-text ml">
+          <span *ngIf="studentUpdateGroup.get('birthDate')?.invalid && (studentUpdateGroup.get('birthDate')?.dirty || studentUpdateGroup.get('birthDate')?.touched || isFormValid)">
+            Birth Date is required
+          </span>
+        </div>
+      </div>
+      <br>
+  
+      <div class="mb-3 ">
+           <h5>Address</h5>
+          <textarea 
+            name="address" 
+            cols="50"
+            area-describedby="address" 
+            rows="5" 
+            placeholder="Enter your Address" 
+            class="form-control" 
+            formControlName="address" 
+            required="required"
+          >
+          </textarea>
+          <div id="address" class="form-text ml">
+            <span *ngIf="studentUpdateGroup.get('address')?.invalid && (studentUpdateGroup.get('address')?.dirty || studentUpdateGroup.get('address')?.touched || isFormValid)">
+              Address is required
+            </span>
+          </div>
+      </div>  
+      <br>
+  
+      <div class="mb-3 ">
+        <h5>Mobile Number </h5>
+          <input 
+            type="text"
+            class="form-control" 
+            placeholder="Enter Mobile Number"
+            formControlName="mobileNo" 
+            required="required"
+            aria-describedby="mobileNo"
+            maxlength="10"
+            minlength="10"
+          />
+          <div id="mobileNo" class="form-text ml">
+            <span *ngIf="studentUpdateGroup.get('mobileNo')?.invalid && (studentUpdateGroup.get('mobileNo')?.dirty || studentUpdateGroup.get('mobileNo')?.touched || isFormValid)">
+              Mobile No is invalid
+            </span>
+          </div>
+      </div>
+      
+      <br>
+  
+      <div class="mb-3">
+          <button  mat-flat-button style="color: white; background-color: green;" type="button" class="btn btn-primary" (click)="submitForm()">Submit</button>
+      </div>
+      <br>
+      
+    </form>
+    
+  </div>
+  

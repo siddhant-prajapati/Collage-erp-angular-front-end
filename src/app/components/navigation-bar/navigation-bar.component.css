@@ -7,7 +7,24 @@ a {
     text-decoration: none;
     background-color: #ddd; 
   }
+
+  .menu-btn {
+    width: 100px;
+    height: 50px;
+    vertical-align: baseline;
+    margin-top: 12px;
+  }
   
+  .login {
+    background-color: green;
+    color: black;
+  }
+
+  .signup {
+    background-color: skyblue;
+    color: blue;
+  }
+
   /* Change color on hover */
    a:hover {
     color: white;
@@ -18,22 +35,54 @@ a {
     color: black;
   }
 
-  button   {
-    float: left;
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    background-color: #ddd; 
-    z-index: 1;
+  .mobile-link {
+    display: none;
   }
 
-.d-inline-block button{
-  z-index: 1;
-  display: block;
-  border: none;
-  margin: 0;
-  padding: 11px 16px;
+  .desktop-link {
+    display: block;
+    background-color: #e2e2e2;
+    
+  }
+
+  .mobile-head {
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
+  .mobile-head div {
+    display: grid;
+    grid-template-columns: auto auto;
+    position: relative;
+  }
+
+  /* .mobile-head button {
+    border-radius: 5px;
+  } */
+
+.account {
+  float: right;
+  color: blue;
+  border-radius: 15px;
+}
+
+.auth {
+  display: none;
+  width: 250px;
+}
+
+.auth a {
+  background-color: white;
+  border-radius: 20px;
+}
+
+.auth a:hover {
+  color: white;
+}
+
+.btn-position {
+  display: grid;
 }
 
 @media screen and (max-width : 700px){
@@ -45,5 +94,36 @@ a {
 @media screen and (max-width : 600px){
   #alumni {
     display: none;
+    float: none;
+  }
+}
+
+@media screen and (max-width : 500px){
+  .mobile-link {
+    display: block;
+  }
+
+  .auth {
+    display: block;
+  }
+
+  .desktop-link {
+    display: none;
+  }
+
+  a{
+    float: none;
+  }
+
+  .account {
+    float: none;
+  }
+
+  #contact {
+    display: block;
+  }
+
+  #alumni {
+    display: block;
   }
 }

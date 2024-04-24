@@ -11,9 +11,8 @@
   white-space: nowrap; /* keep text in one line */
   overflow: hidden; /* hide text behind the cursor */
   margin: 10px auto;
-  font-family: "Major Mono Display", monospace;
-  font-size: 10vm;
-  font-weight: bold;
+  font-weight: bolder;
+  font-size: x-large;
 }
 
 @keyframes typewriter_1 {
@@ -98,6 +97,28 @@
       li {
         font-size: 15px;
       }
+  }
+
+  @media screen and (max-width :500){
+    .first_line,
+    .second_line {
+      white-space: nowrap; /* keep text in one line */
+      overflow: hidden; /* hide text behind the cursor */
+      margin: auto auto;
+      font-family: "Major Mono Display", monospace;
+      font-size: 8vm;
+      font-weight: bold;
+    }
+    .container {
+      padding: 0 0;
+    }
+    h1 {
+      margin: 3px 0;
+      padding: 3px 0;
+    }
+    li {
+      font-size: 15px;
+    }
   }
 
   

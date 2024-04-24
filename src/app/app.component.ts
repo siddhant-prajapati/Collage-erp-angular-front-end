@@ -10,5 +10,5 @@ import { FirstPageComponent } from './components/first-page/first-page.component
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'reusable-items';
+  title = 'V.V.P. Engineering Collage';
 }

@@ -1,0 +1,83 @@
+<h2>Mark Of Student</h2>
+
+@for(student of this.httpService.studentBySem ; track student; let i = $index){
+    <div class="exam-table">
+        <table>
+            <tr>
+                <td colspan="2"><b>Student Id</b></td>
+                <td colspan="3">{{student[0].studentId }}</td>
+            </tr>
+            <tr>
+                <td colspan="2"><b>Department</b></td>
+                <td colspan="3">{{student[0].department }}</td>
+            </tr>
+            <tr>
+                <td colspan="2"><b>Semester</b></td>
+                <td colspan="3">{{ i+1 }}</td>
+            </tr>
+            <tr>
+                <td><b>Dates </b></td>
+                <td><b>Subject</b></td>
+                <td><b>Marks</b></td>
+            </tr>
+            @for(exam of this.httpService.studentBySem[i] ; track exam ; let j = $index){
+                <tr>
+                    <td>{{exam.date}}</td>
+                    <td>{{exam.subject}}</td>
+                    <td>{{exam.marks}}</td>
+                    <td>
+                        <button 
+                            mat-flat-button 
+                            style="background-color: rgb(38, 38, 206); color: white;"
+                            (click)="toggleInput(exam)">
+                            Update Marks
+                        </button>
+                    </td>
+                    <td>
+                        <button 
+                            style="background-color: rgb(240, 43, 43); color: white;" 
+                            (click)="deleteData(student[i].examId)"   
+                            mat-flat-button>
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+                
+            }
+            
+        </table>
+        </div>
+        <br>
+                <hr>
+    }
+
+    <div *ngIf="showElement">
+        <p><b> Please Verify Below data before updating </b></p>
+        <table>
+            <tr>
+                <td><b>Student Id : {{this.httpService.updatebleExam.studentId}}</b></td>
+                <td><b>Department : {{this.httpService.updatebleExam.department}}</b></td>
+                <td><b>Semester : {{this.httpService.updatebleExam.sem}}</b></td>
+                <td><b>Dates : {{this.httpService.updatebleExam.date}}</b></td>
+                <td><b>Subject : {{this.httpService.updatebleExam.subject}}</b></td>
+                <td><b>Marks : {{this.httpService.updatebleExam.marks}}</b></td>
+            </tr>
+        </table>
+        
+        <mat-form-field>
+            <mat-label>Exam Marks</mat-label>
+            <input matInput type="number" #marks placeholder="Enter Marks">
+        </mat-form-field>
+        <button mat-flat-button (click)="updateMarks(marks.value)">Enter Marks</button>
+    </div>
+
+    <!-- @for(student of this.httpService.studentBySem ; track student; let i = $index){
+        <h3>Sem {{i+1}}</h3>
+        <pre>
+            {{this.httpService.studentBySem[i] | json}}
+        </pre>
+    } -->
+    <!-- <pre>
+        {{this.httpService.studentBySem[0] | json}}
+    </pre> -->
+    

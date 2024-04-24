@@ -1,0 +1,59 @@
+<div class="fillAttendance">
+    <h2>Fill Attendance of Students</h2>
+    <div>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <form class="d-flex" class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Search Student</mat-label>
+                <input matInput placeholder="Enter Student Name" #sId type="number">
+              </mat-form-field>
+              <button mat-flat-button type="button" style="color: white; background-color: green;" (click)="searchUser(sId.value)">
+                Search
+              </button>
+          </form>
+        </div>
+      </nav>
+
+      <div>
+        <app-attendance-table [userId]="sId.value"></app-attendance-table>
+      </div>
+    </div>
+    <br>
+      <h4 [style.text-align]="'center'">Fill Below Form for staff attendance</h4>
+      <form [formGroup]="attendanceGroup" class="example-form ">
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>  
+      </form>
+      
+<table>
+    <tr>
+        <td>Student Id</td>
+        <td>Student Name</td>
+        <td>Attendance</td>
+    </tr>
+    @for (student of students ; track student.studentId) {
+        <tr>
+            <td>{{student.studentId}}</td>
+            <td>{{student.studentName}}</td>
+            <td>
+                <input type="checkbox" (click)="fillAttendance(student.studentId)">
+            </td>
+        </tr>
+    }
+</table>
+<div class="fill-btn">
+  <button 
+  mat-flat-button 
+  style="color: white; background-color: green; display: block; margin: auto;" 
+  (click)="SubmitAttendance()">
+    Fill Attendance
+  </button>
+</div>
+
+</div>

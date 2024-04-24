@@ -1,0 +1,41 @@
+<table>
+    <tr>
+        <td>Staff name</td>
+        <td>{{this.httpService.staffProfile.staffName}}</td>
+    </tr>
+    <tr>
+        <td>Department</td>
+        <td>{{this.httpService.staffProfile.department}}</td>
+    </tr>
+    <tr>
+        <td>Experieance</td>
+        <td>{{this.httpService.staffProfile.experience}}</td>
+    </tr>
+    <tr>
+        <td>Mobile Number</td>
+        <td>{{this.httpService.staffProfile.mobileNo}}</td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td>{{this.httpService.staffProfile.address}}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{this.httpService.staffProfile.email}}</td>
+    </tr>
+    <tr>
+        <td>Degree</td>
+        <td>{{this.httpService.staffProfile.degree}}</td>
+    </tr>
+    <tr>
+        <td>Specialization</td>
+        <td>
+            <ol>
+                @for(subject of this.httpService.staffProfile.specialization; track subject){
+                    <li>{{subject}}</li>
+                }
+            </ol>
+            <!-- <pre>{{staff.specialization | json}}</pre> -->
+        </td>
+    </tr>
+</table>

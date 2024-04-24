@@ -1,0 +1,75 @@
+<div class="staff-data">
+    <div class="profile-photo">
+        <img src="../../../../assets/images/Profile-image/{{this.httpService.staff?.profilePic}}" (error)="handleImage($event)" alt="">
+        <!-- <img src="../../../../assets/images/default-user.jpg"  alt=""> -->
+    </div>
+    <div>
+        <table>
+            <tr>
+                <td><b>Staff Name</b></td>
+                <td>{{this.httpService.staff?.staffName}}</td>
+            </tr>
+            <tr>
+                <td><b>Department</b></td>
+                <td>{{this.httpService.staff?.department}}</td>
+            </tr>
+            <tr>
+                <td><b>Degree</b></td>
+                <td>{{this.httpService.staff?.degree}}</td>
+            </tr>
+            <tr>
+                <td><b>Mobile Number</b></td>
+                <td>{{this.httpService.staff?.mobileNo}}</td>
+            </tr>
+            <tr>
+                <td><b>Address</b></td>
+                <td>{{this.httpService.staff?.address}}</td>
+            </tr>
+            <tr>
+                <td><b>Email</b></td>
+                <td>{{this.httpService.staff?.email}}</td>
+            </tr>
+            <tr>
+                <td><b>Password</b></td>
+                <td>{{this.httpService.staff?.password}}</td>
+            </tr>
+            <tr>
+                <td><b>Attendance</b></td>
+                <td>{{this.httpService.staff?.attendance}}</td>
+            </tr>
+            <tr>
+                <td><b>Experieance</b></td>
+                <td>{{this.httpService.staff?.experience}}</td>
+            </tr>
+            <tr>
+                <td><b>Specialization</b></td>
+                <td>{{this.httpService.staff?.specialization | json}}</td>
+            </tr>
+            <tr>
+                <td>
+                    <button 
+                        mat-flat-button 
+                        style="color: white; background-color: violet;" 
+                        (click)="toggleEle(this.httpService.staff?.staffId)">
+                            Update
+                    </button>
+                </td>
+                <td>
+                    <button
+                    mat-flat-button 
+                    style="color: white; background-color: red;" 
+                    (click)="deleteStaff(this.httpService.staff?.staffId)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </table>
+        @if(showEle){
+            <div >
+                <app-update-staff></app-update-staff>
+            </div>
+        }
+        
+        
+    </div>    
+</div>

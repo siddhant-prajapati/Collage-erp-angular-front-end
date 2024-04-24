@@ -1,0 +1,57 @@
+<div class="fillAttendance">
+    <h2>Fill Attendance of Staffs</h2>
+    <div>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <form class="d-flex" class="example-form" >
+            <mat-form-field class="example-full-width">
+                <mat-label>Search Staff Attendance By userId</mat-label>
+                <input matInput placeholder="Enter Student Name" #sId type="number">
+              </mat-form-field>
+              <button 
+                mat-flat-button 
+                style="color: white; background-color: green;" 
+                type="button"
+                (click)="searchUser(sId.value)">
+                Search
+              </button>
+          </form>
+        </div>
+      </nav>
+
+      <div>
+        <!-- <app-attendance-table [staffId]="sId.value"></app-attendance-table> -->
+        <app-staff-attendance-table [userId]="sId.value"></app-staff-attendance-table>
+      </div>
+    </div>
+    
+
+        <form [formGroup]="attendanceGroup">
+          <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>  
+        </form>
+<table>
+    <tr>
+        <td>Staff Id</td>
+        <td>Staff Name</td>
+        <td>Attendance</td>
+    </tr>
+    @for (staff of staffs ; track staff.staffId) {
+        <tr>
+            <td>{{staff.staffId}}</td>
+            <td>{{staff.staffName}}</td>
+            <td>
+                <input type="checkbox" (click)="fillAttendance(staff.staffId)">
+            </td>
+        </tr>
+    }
+</table>
+<button mat-flat-button style="color: white; background-color: green;" (click)="SubmitAttendance()">
+  Fill Attendance
+</button>
+

@@ -1,6 +1,4 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-</script>
 <div class="login-body">
 	<div class="container">
 		<div class="screen">
@@ -23,7 +21,7 @@
 						</select>
 					</div>
 					<div class="login__field">
-						<a routerLink="">Forget Password</a>
+						<a routerLink="/forget">Forget Password</a>
 					</div>
 					<button class="button login__submit">
 						<span class="button__text">Log In Now</span>
@@ -35,9 +33,15 @@
 					<a routerLink="../signup"> Don't Have account Please SingUp</a>
 				</div>
 				<div class="request">
-					<a href="" target="_blank"><img src="../../../assets/images/footer-images/twitter-logo.png" alt="" width="50" height="50" class="d-inline-block align-text-top"></a>
-          			<a href="" target="_blank"><img src="../../../assets/images/footer-images/facebook-icon.png" alt="" width="55" height="55" class="d-inline-block align-text-top"></a>
-         			<a href="" target="_blank"><img src="../../../assets/images/footer-images/google.jpg" alt="" width="50" height="50" class="d-inline-block align-text-top"></a>
+					<a href="" target="_blank">
+						<img src="../../../assets/images/footer-images/twitter-logo.png" alt="" width="50" height="50" class="d-inline-block align-text-top">
+					</a>
+          			<a href="" target="_blank">
+						<img src="../../../assets/images/footer-images/facebook-icon.png" alt="" width="55" height="55" class="d-inline-block align-text-top">
+					</a>
+         			<a href="" target="_blank">
+						<img src="../../../assets/images/footer-images/google.jpg" alt="" width="50" height="50" class="d-inline-block align-text-top">
+					</a>
 				</div>
 			</div>
 			<div class="screen__background">
@@ -49,4 +53,4 @@
 		</div>
 	</div>
 </div>
-<input type="text" (keydown)="keyrole($event)">
+<input type="text" (keydown)="keyrole($event)" *ngIf="false">

@@ -1,0 +1,133 @@
+<form [formGroup]="staffGroup">
+    <mat-form-field>
+        <mat-label>Staff Name</mat-label>
+        <input matInput type="text" formControlName="staffName">
+        <span 
+    *ngIf="staffGroup.get('staffName')?.invalid && (staffGroup.get('staffName')?.dirty || staffGroup.get('staffName')?.touched || isFormValid)">
+        Staff name is required
+    </span>
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="pat@example.com" formControlName="email">
+        <span 
+        *ngIf="staffGroup.get('email')?.invalid && (staffGroup.get('email')?.dirty || staffGroup.get('email')?.touched || isFormValid)">
+            Email is required
+          </span>
+    </mat-form-field>
+        
+    
+    <mat-form-field class="hw">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+        <span *ngIf="staffGroup.get('password')?.invalid && (staffGroup.get('password')?.dirty || staffGroup.get('password')?.touched || isFormValid)">
+            Enter valid Password is required
+          </span>
+    </mat-form-field>
+        
+    
+    <mat-form-field class="hw">
+        <mat-label>Mobile Number</mat-label>
+        <input matInput type="number" maxlength="10" minlength="10" formControlName="mobileNo">
+        <span *ngIf="staffGroup.get('mobileNo')?.invalid && (staffGroup.get('mobileNo')?.dirty || staffGroup.get('mobileNo')?.touched || isFormValid)">
+            Mobile is required
+          </span>
+    </mat-form-field>
+        
+    
+    <mat-form-field class="hw">
+        <mat-label>Attendance</mat-label>
+        <input matInput type="number" formControlName="attendance">
+        <span *ngIf="staffGroup.get('attendance')?.invalid && (staffGroup.get('attendance')?.dirty || staffGroup.get('attendance')?.touched || isFormValid)">
+            Attendance is required
+          </span>
+    </mat-form-field>
+        
+    
+    <mat-form-field class="hw">
+        <mat-label>Select Department</mat-label>
+        <mat-select formControlName="department">
+            <mat-option value="computer">Computer Engineering</mat-option>
+            <mat-option value="it">IT Engineering</mat-option>
+            <mat-option value="electrical">Electrical Engineering</mat-option>
+            <mat-option value="mechanical">Mechanical Engineering</mat-option>
+            <mat-option value="chemical">Chemical Engineering</mat-option>
+            <mat-option value="civil">Civil Engineering</mat-option>
+        </mat-select>
+        <span *ngIf="staffGroup.get('department')?.invalid && (staffGroup.get('department')?.dirty || staffGroup.get('department')?.touched || isFormValid)">
+            Department is required
+          </span>
+    </mat-form-field>
+        
+    
+    <mat-form-field>
+        <mat-label>Address</mat-label>
+        <textarea matInput formControlName="address"></textarea>
+        <span *ngIf="staffGroup.get('address')?.invalid && (staffGroup.get('address')?.dirty || staffGroup.get('address')?.touched || isFormValid)">
+            Address is required
+        </span>
+    </mat-form-field>
+        
+
+    <mat-form-field>
+        <mat-label>Degree</mat-label>
+        <input matInput type="text" formControlName="degree">
+        <span *ngIf="staffGroup.get('degree')?.invalid && (staffGroup.get('degree')?.dirty || staffGroup.get('degree')?.touched || isFormValid)">
+            Degree is required
+          </span>
+    </mat-form-field>
+        
+
+    <mat-form-field>
+        <mat-label>Experieance</mat-label>
+        <input matInput type="text" formControlName="experiance">
+    </mat-form-field>
+
+    <div>
+        <b>Add Specialization</b>
+        <button (click)="addSpecialization()" style="background-color: blue;">
+            Add Specialization
+        </button>
+    </div>
+    @for(subject of specialization.controls; track subject ; let i = $index){
+        <div>
+            <mat-form-field class="sw">
+                <mat-label>Specialization</mat-label>
+                <input 
+                    type="text" 
+                    matInput 
+                    placeholder="Enter specialization" 
+                    name="subject"
+                    class="spec-input"
+                    #val
+                />
+              </mat-form-field>
+              <button 
+                type="button"  
+                style="background-color: greenyellow;" 
+                (click)="addValue(val)"
+                class="del-spec">
+                    Enter
+            </button>
+              <button 
+                type="button"  
+                style="background-color: red;" 
+                (click)="deleteSpecialization(i)"
+                class="del-spec">
+                    Delete
+            </button>
+        </div>
+    }
+    {{specilize}}
+    <mat-checkbox class="example-margin" formControlName="isValid">
+        The above given information is valid.
+    </mat-checkbox>
+    <span *ngIf="staffGroup.get('isValid')?.invalid && (staffGroup.get('isValid')?.dirty || staffGroup.get('isValid')?.touched || isFormValid)">
+        Please check confirmation
+      </span>
+    <br>    
+    <button style="background-color: green;" (click)="submitForm()">Submit</button>
+    
+    <button type="reset" style="background-color: red;" (click)="staffGroup.reset()">Reset</button>
+</form>

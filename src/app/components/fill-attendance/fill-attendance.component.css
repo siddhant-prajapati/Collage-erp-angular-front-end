@@ -1,0 +1,15 @@
+tr {
+    margin: 5px 10px;
+    padding: 5px 10px;
+}
+
+td {
+    margin: 5px 20px;
+    padding: 5px 20px;  
+}
+
+.fillAttendance {
+    display: block;
+    position: relative;
+    margin: auto 20%;
+}

@@ -1,0 +1,115 @@
+<div class="admmision-fm">
+    <form [formGroup]="staffUpdateGroup">
+      <app-form-header></app-form-header>
+      <h5>Name</h5>
+      <div class="mb-3" >
+        <div class="user-ele">
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Enter Name"  
+            aria-describedby="first"
+            formControlName="staffName" 
+            required="required" 
+            
+          />
+          <div id="first" class="form-text">
+            <span *ngIf="staffUpdateGroup.get('staffName')?.invalid && (staffUpdateGroup.get('staffName')?.dirty || staffUpdateGroup.get('staffName')?.touched || isFormValid)">
+              Name is required
+            </span>
+          </div>
+        </div>
+  
+      </div>
+      <br>
+  
+      <div class="mb-3">
+        <h5>Email</h5>
+        <input 
+          type="email" 
+          class="form-control" 
+          placeholder="Enter Email" 
+          aria-describedby="email"
+          formControlName="email" 
+          required="required" 
+          pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+        />
+        <div id="email" class="form-text ml">
+          <span *ngIf="staffUpdateGroup.get('email')?.invalid && (staffUpdateGroup.get('email')?.dirty || staffUpdateGroup.get('email')?.touched || isFormValid)">
+            Email is required
+          </span>
+        </div>
+      </div>
+      <br>
+
+      <div class="mb-3">
+        <h5>Password</h5>
+        <input 
+            type="password" 
+            class="form-control" 
+            name="password"
+            placeholder="Enter password" 
+            aria-describedby="passwd" 
+            formControlName="password" 
+            required="required"
+          />
+          <div id="last" class="form-text">
+            <span *ngIf="staffUpdateGroup.get('password')?.invalid && (staffUpdateGroup.get('password')?.dirty || staffUpdateGroup.get('password')?.touched || isFormValid)">
+              Password is required
+            </span>
+          </div>
+      </div>
+  
+      <div class="mb-3 ">
+           <h5>Address</h5>
+          <textarea 
+            name="address" 
+            cols="50"
+            area-describedby="address" 
+            rows="5" 
+            placeholder="Enter your Address" 
+            class="form-control" 
+            formControlName="address" 
+            required="required"
+          >
+          </textarea>
+          <div id="address" class="form-text ml">
+            <span *ngIf="staffUpdateGroup.get('address')?.invalid && (staffUpdateGroup.get('address')?.dirty || staffUpdateGroup.get('address')?.touched || isFormValid)">
+              Address is required
+            </span>
+          </div>
+      </div>  
+      <br>
+  
+      <div class="mb-3 ">
+        <h5>Mobile Number </h5>
+          <input 
+            type="text"
+            class="form-control" 
+            placeholder="Enter Mobile Number"
+            formControlName="mobileNo" 
+            required="required"
+            aria-describedby="mobileNo"
+            maxlength="10"
+            minlength="10"
+          />
+          <div id="mobileNo" class="form-text ml">
+            <span *ngIf="staffUpdateGroup.get('mobileNo')?.invalid && (staffUpdateGroup.get('mobileNo')?.dirty || staffUpdateGroup  .get('mobileNo')?.touched || isFormValid)">
+              Mobile No is invalid
+            </span>
+          </div>
+      </div>
+          
+      
+      <br>
+  
+      <div class="mb-3">
+          <button type="submit" class="btn btn-primary" (click)="submitForm()">Submit</button>
+      </div>
+      <br>
+  
+      
+    </form>
+    
+  </div>
+  

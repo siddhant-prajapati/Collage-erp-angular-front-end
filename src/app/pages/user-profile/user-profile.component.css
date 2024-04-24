@@ -1,0 +1,118 @@
+.user-profile {
+    display: grid;
+    grid-template-columns: 300px auto auto;
+    background-color: white;
+    position: relative;
+}
+
+.pic {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.pic button{
+    position: absolute;
+    top: 230px;
+    left: 230px;
+    border-radius: 25px;
+    width: 50px;
+    height: 50px;
+}
+.profile-pic {
+    /* display: grid; */
+    margin: auto;
+    grid-template-columns: auto;
+}
+
+.profile-pic a button{
+    width: 250px;
+}
+
+.img-form {
+    display: grid;
+    grid-template-columns: 100%;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 3px 3px 3px;
+}
+
+.admin-btn {
+    width: 200px;
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e2e2e2;
+}
+
+.admin-li {
+    width: 100%;
+}
+.admin-li li {
+    text-decoration: none;
+    list-style: none;
+}
+
+.admin-btn:hover{
+    color: white;
+    background-color: blue;
+}
+
+.btn {
+    width: 70%;
+    margin: 20px;
+}
+img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50px;
+    margin: 20px;
+    box-shadow: 5px 5px 5px;
+}
+.attendance {
+    position: relative;
+    margin-top: 40px;
+}
+.attendance h3 {
+    margin: 50px 10px;
+    text-align: center;
+}
+
+app-user-attendance {
+    margin: auto;
+}
+
+section {
+    background-color: white;
+}
+
+@media screen and (max-width : 950px){
+    .user-profile {
+        display: grid;
+        grid-template-columns: auto auto ;
+        grid-template-rows: auto 400px;
+    }
+    .attendance {
+        display: grid;
+        margin: auto;
+        width: 100%;
+    }
+}
+@media screen and (max-width : 650px){
+    .user-profile {
+        display: grid;
+        grid-template-columns: auto ;
+        background-color: white;
+    }
+    .profile-pic {
+        margin: auto;
+    }
+    .btn {
+        width: 100%;
+        margin: 5px;
+    }
+    .user-detail {
+        margin: auto;
+    }
+}
+

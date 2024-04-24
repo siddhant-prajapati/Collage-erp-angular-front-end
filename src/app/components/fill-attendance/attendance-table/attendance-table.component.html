@@ -1,0 +1,27 @@
+<div class="attendance-table">
+    <h3>Attendance of user : {{userId}}</h3>
+    <table>
+        <tr>
+            <td><b>Attendance Id</b></td>
+            <td><b>Role</b></td>
+            <td><b>Date</b></td>
+        </tr>
+        @for(attendance of this.httpService.studentAttendances ; track attendance.attendaceId){
+            @if(attendance.role == 'staff' && this.httpService.role =='staff'){
+                <tr>
+                    <td colspan="3"><div style="color: red;">Staff Can not see other Staff attendance</div></td>
+                </tr>
+            } @else {
+                <tr>
+                    <td>{{attendance.attendanceId}}</td>
+                    <td>{{attendance.role}}</td>
+                    <td style="width: fit-content;">{{attendance.date}}</td>
+                    <td>
+                        <button class="delete-attendance" (click)="deleteAttendance(attendance.attendanceId)">Delete Attendance</button>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+

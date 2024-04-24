@@ -6,7 +6,7 @@
   }
   .grid-item {
     display: grid;
-    grid-template-columns: 30% 60%;
+    grid-template-columns: 30% 70%;
     background-color: aliceblue;
     padding: 20px;
     margin: 5px;
@@ -23,23 +23,48 @@
     height: 200px;
   }
   .data {
-    width: auto;
+    text-align: justify;
   }
 
   h1 {
     text-align: center;
   }
 
-  tr {
-    margin: 2px;
-    padding: 2px;
-  }
-
-  td {
-    margin: 2px;
-    padding: 2px;
-  }
-
   p {
     font-size: large;
+  }
+  
+
+  
+
+  @media screen and (max-width: 900px){
+    p {
+      font-size: medium;
+    }
+  }
+
+  @media screen and (max-width: 800px){
+    p {
+      font-size: medium;
+    }
+  }
+  
+  @media screen and (min-width: 750){
+    p{ font-size: small;}
+    .grid-item {
+      display: grid;
+      grid-template-columns: 40% 60%;
+    }
+    .profile-pic img {
+      width: 150px;
+      height: 150px;
+    }
+  }
+  
+  @media screen and (max-width: 650){
+    p { font-size: smaller;}
+    .grid-item {
+      display: grid;
+      grid-template-columns: 50% 50%;
+    }
   }

@@ -1,0 +1,71 @@
+<form [formGroup]="adminUpdateGroup">
+    <app-form-header></app-form-header>
+    <h5>Name</h5>
+      <div class="mb-3" >
+        <div class="user-ele">
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Enter Name"  
+            aria-describedby="first"
+            formControlName="adminName" 
+            required="required" 
+            
+          />
+          <div id="first" class="form-text">
+            <span *ngIf="adminUpdateGroup.get('studentName')?.invalid && (adminUpdateGroup.get('studentName')?.dirty || adminUpdateGroup.get('studentName')?.touched || isFormValid)">
+              Name is required
+            </span>
+          </div>
+        </div>
+  
+      </div>
+      <br>
+  
+      <div class="mb-3">
+        <h5>Email</h5>
+        <input 
+          type="email" 
+          class="form-control" 
+          placeholder="Enter Email" 
+          aria-describedby="email"
+          formControlName="email" 
+          required="required" 
+          pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+        />
+        <div id="email" class="form-text ml">
+          <span *ngIf="adminUpdateGroup.get('email')?.invalid && (adminUpdateGroup.get('email')?.dirty || adminUpdateGroup.get('email')?.touched || isFormValid)">
+            Email is required
+          </span>
+        </div>
+      </div>
+      <br>
+
+      <div class="mb-3">
+        <h5>Password</h5>
+        <input 
+            type="password" 
+            class="form-control" 
+            name="password"
+            placeholder="Enter password" 
+            aria-describedby="passwd" 
+            formControlName="password" 
+            required="required"
+          />
+          <div id="last" class="form-text">
+            <span *ngIf="adminUpdateGroup.get('password')?.invalid && (adminUpdateGroup.get('password')?.dirty || adminUpdateGroup.get('password')?.touched || isFormValid)">
+              Password is required
+            </span>
+          </div>
+      </div>
+
+      <div class="mb-3">
+        <button 
+            mat-flat-button 
+            style="color: white; background-color: green;"
+            (click)="submitAdmin()" 
+            type="button">
+            Submit
+        </button>
+      </div>
+</form>

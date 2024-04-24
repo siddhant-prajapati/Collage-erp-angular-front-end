@@ -1,0 +1,27 @@
+<h1>Staff ERP</h1>
+<h4>This is staff erp here you can update staff details, add new staff as well as find staff By Id</h4>
+
+<button mat-flat-button style="color: white; background-color: blue;" (click)="toggleForm()">Add Staff</button>
+
+<div class="find-student">
+    <mat-form-field appearance="outline"> 
+        <mat-label>Find Staff By Id</mat-label>
+       <input matInput placeholder="Placeholder" #staff>
+       <mat-hint>Enter Staff Id</mat-hint>
+   </mat-form-field>
+   <button mat-flat-button style="color: white; background-color: green;" (click)="findStaff(staff.value)">
+        Search
+    </button>   
+</div>
+
+
+@if (this.httpService.staff){
+    <app-staff-details></app-staff-details>
+}
+
+    <br>
+<br>
+<div *ngIf="showElement">
+    <app-add-staff></app-add-staff>
+</div>
+  

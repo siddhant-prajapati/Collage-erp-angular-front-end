@@ -1,0 +1,21 @@
+tr, td {
+    margin: 10px;
+    padding: 10px;
+
+}
+
+td {
+    border: 1px solid skyblue;
+}
+
+h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+.exam-table {
+    position: relative;
+}
+
+table {
+    margin: auto;
+}

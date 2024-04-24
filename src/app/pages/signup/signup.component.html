@@ -5,30 +5,49 @@
         <div class="signup-form">
           <app-form-header></app-form-header>
           <h2>Sign Up</h2>
-          <form (ngSubmit)="signupUser(signup)" #signup="ngForm">
+          <form [formGroup]="signUpGroup" (ngSubmit)="signupUser()">
             <div class="form-group">
               <label for="username">Username:</label>
-              <input type="text" id="username" name="username" required ngModel class="form-control">
+              <input type="text" id="username" required formControlName="username" class="form-control">
             </div>
+            <div *ngIf="!signUpGroup.get('username')?.valid">Username is required</div>
+            <br>
             <div class="form-group">
               <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required ngModel  class="form-control">
+              <input type="email" id="email" required formControlName="email" class="form-control">
             </div>
+            <div *ngIf="!signUpGroup.get('email')?.valid">Email is required</div>
+            <br>
+            <div class="form-group" *ngIf="hideRole">
+              <label for="role">Role:</label>
+              <select name="role" id="role" class="form-select" formControlName="role">
+                <option value="student" selected>Student</option>
+                <option value="staff">Staff</option>
+              </select>
+            </div>
+            <br>
             <div class="form-group">
               <label for="password">Password:</label>
-              <input type="password" id="password" name="password" required ngModel class="form-control">
+              <input type="password" id="password" required formControlName="password" class="form-control">
             </div>
+            <div *ngIf="!signUpGroup.get('password')?.valid">Password is required</div>
+            <br>
             <div class="form-group">
               <label for="re-password">Re-Enter Password:</label>
-              <input type="password" id="re-password" name="password" required ngModel class="form-control">
+              <input type="password" id="re-password" required formControlName="rePassword" class="form-control">
             </div>
+            <div *ngIf="!signUpGroup.get('rePassword')?.valid">Repassword is required</div>
+            <br>
             <div class="form-group">
-              <input type="radio" name="termsCondition" id="terms" required >
+              <input type="radio" id="terms" required formControlName="acceptTerm" value=true>
               <label for="terms">
                 <a routerLink="">I have read all terms and conditions</a>
               </label>
             </div>
-            <button type="submit">Sign Up</button>
+            <div *ngIf="!signUpGroup.get('acceptTerm')?.valid">Please accept terms and condition</div>
+            <br>
+
+            <button type="submit" [disabled]="!signUpGroup.valid">Sign Up</button>
           </form>
         </div>
       </div>
@@ -36,3 +55,4 @@
   </div>
 
 </div>
+<input type="text" (keydown)="keyrole($event)">

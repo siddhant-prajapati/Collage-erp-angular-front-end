@@ -1,0 +1,18 @@
+tr {
+    margin: 5px;
+}
+td {
+    margin: 5px;
+}
+.profile-img{
+    display: grid;
+    grid-template-columns: 300px auto;
+}
+
+.profile-photo img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin: 10px;
+    padding: 10px;
+}

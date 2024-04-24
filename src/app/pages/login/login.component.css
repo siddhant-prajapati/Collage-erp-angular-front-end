@@ -10,7 +10,8 @@
 .login-body {
 	background-image: url('../../../assets/images/first-page/security-background.jpg');
 	background-size: cover;
-	height: 100%;
+	width: 100%;
+	height: auto;
 }
 
 .container {

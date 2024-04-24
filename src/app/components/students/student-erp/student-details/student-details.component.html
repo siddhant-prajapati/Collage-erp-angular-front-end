@@ -1,0 +1,73 @@
+<div class="profile-img">
+    <div class="profile-photo">
+        <img src="../../../../assets/images/Profile-image/{{this.httpService.student?.profilePic}}" (error)="handleImage($event)" alt="">
+        <!-- <img src="../../../../assets/images/default-user.jpg"  alt=""> -->
+    </div>
+    <table>
+        <tr>
+            <td><b>Student Name</b></td>
+            <td>{{this.httpService.student?.studentName}}</td>
+        </tr>
+        <tr>
+            <td><b>Department</b></td>
+            <td>{{this.httpService.student?.department}}</td>
+        </tr>
+        <tr>
+            <td><b>Semester</b></td>
+            <td>{{this.httpService.student?.semester}}</td>
+        </tr>
+        <tr>
+            <td><b>Mobile Number</b></td>
+            <td>{{this.httpService.student?.mobileNo}}</td>
+        </tr>
+        <tr>
+            <td><b>Address</b></td>
+            <td>{{this.httpService.student?.address}}</td>
+        </tr>
+        <tr>
+            <td><b>Email</b></td>
+            <td>{{this.httpService.student?.email}}</td>
+        </tr>
+        <tr>
+            <td><b>Password</b></td>
+            <td>{{this.httpService.student?.password}}</td>
+        </tr>
+        <tr>
+            <td><b>Attendance</b></td>
+            <td>{{this.httpService.student?.attendance}}</td>
+        </tr>
+        <tr>
+            <td><b>Gender</b></td>
+            <td>{{this.httpService.student?.gender}}</td>
+        </tr>
+        <tr>
+            <td><b>Birth Date</b></td>
+            <td>{{this.httpService.student?.birthDate}}</td>
+        </tr>
+        <tr>
+            <td>
+                <button 
+                    mat-flat-button 
+                    style="color: white; background-color: violet;" 
+                    (click)="toggleEle(this.httpService.student.studentId)">
+                        Update
+                </button>
+            </td>
+            <td>
+                <button 
+                    mat-flat-button 
+                    style="color: white; background-color: red;" 
+                    (click)="deleteStudent(this.httpService.student.studentId)">
+                        Delete
+                </button>
+            </td>
+        </tr>
+    </table>
+    
+</div>
+@if(showEle){
+    <div >
+        <app-update-student></app-update-student>
+    </div>
+}
+

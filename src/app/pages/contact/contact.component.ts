@@ -17,5 +17,6 @@ export class ContactComponent {
   sendQuery(form : NgForm){
     console.log("form value")
     this.contactService.sendMessage(form.value)
+    alert("Mail Send Successfully")
   }
 }

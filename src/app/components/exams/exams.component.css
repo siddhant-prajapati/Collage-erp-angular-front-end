@@ -1,0 +1,12 @@
+.find-student {
+    float: right;
+}
+
+.exam-table {
+    position: relative;
+}
+
+app-exam-details {
+    margin: auto;
+    display: block;
+}

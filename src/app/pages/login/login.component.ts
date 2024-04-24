@@ -1,16 +1,22 @@
 import { Component, inject } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, NgForm, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { FormHeaderComponent } from '../../components/form-header/form-header.component';
+import { ApiRequestService } from '../../services/api-request.service';
+import { CommonModule } from '@angular/common';
+import { JwtDecoderService } from '../../services/jwt-decoder.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, FormsModule, FormHeaderComponent],
+  imports: [RouterLink, FormsModule, FormHeaderComponent, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+
+  httpService= inject(ApiRequestService)
+  jwtService = inject(JwtDecoderService)
 
   router = inject(Router)
   
@@ -18,9 +24,26 @@ export class LoginComponent {
 
   async loginUser(form: NgForm) {
     console.log(form.value)
-    console.log(this.selectedValue)
 
-    this.router.navigate(['/layout'])
+    try{
+      const data = await this.httpService.attemptLogin(form.value).toPromise()
+      console.log(data)
+      sessionStorage.setItem("token", data.accessToken)
+      sessionStorage.setItem("userId", data.userId)
+      alert("Login Successfull!")
+      const decoded = await this.jwtService.decodeToken(data.accessToken)
+
+      sessionStorage.setItem("role", decoded.a[0])
+      const role = sessionStorage.getItem("role")
+      if(role==='staff'){
+        const staff = await this.httpService.findStaffByEmail(decoded.e).toPromise()
+        sessionStorage.setItem("loginDepartment", staff.department)
+      }
+      this.router.navigate(['/layout'])
+    } catch(e) {
+      console.log(e)
+    }
+
   }
   hideRole:string = "none";
 

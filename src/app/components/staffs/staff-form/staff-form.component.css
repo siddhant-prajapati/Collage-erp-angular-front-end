@@ -1,0 +1,46 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+mat-form-field {
+    width: 96%;
+    margin: 2%;
+}
+
+button {
+    width: 45%;
+    margin: 2%;
+    color: white;
+    height: 40px;
+    border-radius: 5px;
+    font-size: large;
+}
+
+mat-label {
+    font-weight: bolder;
+}
+
+mat-radio-button {
+    margin: 2%;
+}
+
+.hw {
+    width: 46%;
+}
+
+.sw {
+    width: 60%;
+}
+
+.del-spec {
+    width: 16%;
+    margin: 1%;
+}
+
+.spec-input {
+    border-width: 2px;
+    border-style: solid;
+    border-color: red;
+}

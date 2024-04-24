@@ -1,0 +1,11 @@
+.staff-data {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+}
+.profile-photo img{
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    object-fit: cover;
+}
