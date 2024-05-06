@@ -29,7 +29,7 @@
     
     <mat-form-field class="hw">
         <mat-label>Mobile Number</mat-label>
-        <input matInput type="number" maxlength="10" minlength="10" formControlName="mobileNo">
+        <input matInput type="number" maxlength="10" formControlName="mobileNo">
         <span *ngIf="staffGroup.get('mobileNo')?.invalid && (staffGroup.get('mobileNo')?.dirty || staffGroup.get('mobileNo')?.touched || isFormValid)">
             Mobile is required
           </span>
@@ -86,7 +86,7 @@
 
     <div>
         <b>Add Specialization</b>
-        <button (click)="addSpecialization()" style="background-color: blue;">
+        <button (click)="addSpecialization()" appButtonStyle="blue">
             Add Specialization
         </button>
     </div>
@@ -105,14 +105,14 @@
               </mat-form-field>
               <button 
                 type="button"  
-                style="background-color: greenyellow;" 
+                appButtonStyle="greenyellow" 
                 (click)="addValue(val)"
                 class="del-spec">
                     Enter
             </button>
               <button 
                 type="button"  
-                style="background-color: red;" 
+                appButtonStyle="red" 
                 (click)="deleteSpecialization(i)"
                 class="del-spec">
                     Delete
@@ -127,7 +127,7 @@
         Please check confirmation
       </span>
     <br>    
-    <button style="background-color: green;" (click)="submitForm()">Submit</button>
+    <button appButtonStyle="green" (click)="submitForm()">Submit</button>
     
-    <button type="reset" style="background-color: red;" (click)="staffGroup.reset()">Reset</button>
+    <button type="reset" appButtonStyle="red" (click)="staffGroup.reset()">Reset</button>
 </form>

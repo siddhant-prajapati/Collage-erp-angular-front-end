@@ -5,6 +5,9 @@ import { FormHeaderComponent } from '../../components/form-header/form-header.co
 import { ApiRequestService } from '../../services/api-request.service';
 import { CommonModule } from '@angular/common';
 import { JwtDecoderService } from '../../services/jwt-decoder.service';
+import { StudentApiService } from '../../services/student-api.service';
+import { StaffApiService } from '../../services/staff-api.service';
+import { AuthApiService } from '../../services/auth-api.service';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +18,10 @@ import { JwtDecoderService } from '../../services/jwt-decoder.service';
 })
 export class LoginComponent {
 
-  httpService= inject(ApiRequestService)
+  httpService= inject(AuthApiService)
+  studentService = inject(StudentApiService)
   jwtService = inject(JwtDecoderService)
+  staffService = inject(StaffApiService)
 
   router = inject(Router)
   
@@ -36,8 +41,15 @@ export class LoginComponent {
       sessionStorage.setItem("role", decoded.a[0])
       const role = sessionStorage.getItem("role")
       if(role==='staff'){
-        const staff = await this.httpService.findStaffByEmail(decoded.e).toPromise()
+        const staff = await this.staffService.findStaffByEmail(decoded.e).toPromise()
         sessionStorage.setItem("loginDepartment", staff.department)
+        sessionStorage.setItem("profilePic", staff.profilePic)
+      }
+      if(role==='student'){
+        const student = await (await this.studentService.findStudentByEmail(decoded.e)).toPromise()
+        console.log(student);
+        
+        sessionStorage.setItem("profilePic", student.profilePic)
       }
       this.router.navigate(['/layout'])
     } catch(e) {

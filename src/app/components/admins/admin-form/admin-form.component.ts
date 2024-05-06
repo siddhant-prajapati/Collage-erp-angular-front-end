@@ -38,7 +38,7 @@ export class AdminFormComponent {
         password: formValue.password,
         role: 'admin'
       }
-      const adminId = this.httpService.adminProfile.adminId
+      const adminId = this.adminService.adminProfile.adminId
       const data = await this.adminService.updateAdmin(adminId, updatableAdmin).toPromise()
       alert("admin updated successfully")
       console.log(data);
@@ -56,7 +56,7 @@ export class AdminFormComponent {
         password: formValue.password,
         role: 'admin'
       }
-      const adminId = this.httpService.adminProfile.adminId
+      const adminId = this.adminService.adminProfile.adminId
       const data = await this.adminService.createAdmin(newAdmin).toPromise()
       alert("New Admin created!")
       console.log(data);

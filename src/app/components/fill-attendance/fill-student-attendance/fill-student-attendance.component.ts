@@ -11,6 +11,7 @@ import { FillAttendanceModel } from '../../../models/fillAttendance.model';
 import { StudentApiService } from '../../../services/student-api.service';
 import { AttendanceTableComponent } from '../attendance-table/attendance-table.component';
 import { CommonModule } from '@angular/common';
+import { AttendanceApiService } from '../../../services/attendance-api.service';
 
 @Component({
   selector: 'app-fill-student-attendance',
@@ -31,7 +32,10 @@ import { CommonModule } from '@angular/common';
 export class FillStudentAttendanceComponent implements OnInit{
   apiRequestService = inject(ApiRequestService)
   studentService = inject(StudentApiService)
+  attendanceService = inject(AttendanceApiService)
+
   studentAttendance:any[] = []
+
 
   constructor(private fb : FormBuilder){}
   
@@ -56,8 +60,8 @@ export class FillStudentAttendanceComponent implements OnInit{
 
 
   async searchUser(studentId : any){
-    this.apiRequestService.studentAttendances = await this.apiRequestService.findAttendanceByUserId(studentId).toPromise()
-    console.log(this.apiRequestService.studentAttendances);
+    this.attendanceService.studentAttendances = await this.attendanceService.findAttendanceByUserId(studentId).toPromise()
+    console.log(this.attendanceService.studentAttendances);
   }
 
   async SubmitAttendance(){
@@ -71,7 +75,7 @@ export class FillStudentAttendanceComponent implements OnInit{
         userIds: formValue.userIds
       }
       console.log(attendance);
-      const data = await this.apiRequestService.fillAttendance(attendance).toPromise()
+      const data = await this.attendanceService.fillAttendance(attendance).toPromise()
       alert("Attendance filled!")
     }
     

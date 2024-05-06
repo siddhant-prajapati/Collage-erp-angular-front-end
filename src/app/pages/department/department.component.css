@@ -16,13 +16,20 @@ h1 {
 
 .side-list a{
     text-decoration: none;
+    font-weight: bold;
 }
 
 .side-list li {
     list-style: none;
     width: auto;
     padding: 5px;
-    margin-left: -50px;
+    margin-left: -45px;
+}
+
+.side-list .department-list div {
+    list-style: none;
+    width: auto;
+    padding: 5px;
 }
 
 .content {
@@ -37,7 +44,12 @@ p {
 
 @media screen and (max-width : 750px){
     .department {
-        display: grid;
         grid-template-columns: 200px auto;
+    }
+}
+
+@media screen and (max-width : 500px) {
+    .department {
+        grid-template-columns: auto;
     }
 }

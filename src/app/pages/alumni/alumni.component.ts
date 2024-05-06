@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges, inject } from '@angular/core';
 import { ApiRequestService } from '../../services/api-request.service';
+import { StaffApiService } from '../../services/staff-api.service';
 
 @Component({
   selector: 'app-alumni',
@@ -11,7 +12,7 @@ import { ApiRequestService } from '../../services/api-request.service';
 export class AlumniComponent implements OnInit{
   
 
-  apiRequestService = inject(ApiRequestService)
+  apiRequestService = inject(StaffApiService)
 
   counter:number = 52;
 
@@ -30,4 +31,8 @@ export class AlumniComponent implements OnInit{
     
   }
 
+  defaultImage = '../../../assets/images/default-user.jpg'
+  handleImag(event :any){
+    event.target.src = this.defaultImage
+  }
 }

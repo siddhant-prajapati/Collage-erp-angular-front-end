@@ -8,6 +8,7 @@ import { catchError, map, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class StudentApiService {
+  
 
   constructor(private http : HttpClient) { }
 
@@ -20,13 +21,28 @@ export class StudentApiService {
 
   studentList : any;
 
+  async findStudentByEmail(email : any) {
+    const token = sessionStorage.getItem("token")
+    return this.http.get(devEnvironment.backEndUrl + "/student/get-by-email/"+ email).pipe(
+      map((res: any) => {
+        return res;
+      }),
+      catchError((error)=> {
+        //console.error("Error occur" + error)
+        if(error.status === 204){
+          alert('Not any staff available')
+        }
+        if(error.status === 500){
+          alert('Internal server error')
+        }
+        return throwError(error)
+      })
+    )
+  }
+
   async findAllStudentsData(){
     const token = sessionStorage.getItem("token")
-    return this.http.get(devEnvironment.backEndUrl + "/student/all",{
-      headers : {
-        'Authorization' : `Bearer ${token}`
-      }
-    }).pipe(
+    return this.http.get(devEnvironment.backEndUrl + "/student/all").pipe(
       map((res: any) => {
         return res;
       }),
@@ -46,11 +62,7 @@ export class StudentApiService {
 
   findStudentByDepartment(department : string){
     const token = sessionStorage.getItem("token")
-    return this.http.get(devEnvironment.backEndUrl + "/student/get-by-department/"+department,{
-      headers : {
-        'Authorization' : `Bearer ${token}`
-      }
-    }).pipe(
+    return this.http.get(devEnvironment.backEndUrl + "/student/get-by-department/"+department).pipe(
       map((res: any) => {
         return res;
       }),
@@ -97,11 +109,7 @@ export class StudentApiService {
    */
   updateStudent(id : number, student: Student) {
     const token = sessionStorage.getItem("token")
-    return this.http.put(devEnvironment.backEndUrl+ '/student/update/'+id, student, {
-      headers : {
-        'Authorization' : `Bearer ${token}`
-      }
-    }).pipe(
+    return this.http.put(devEnvironment.backEndUrl+ '/student/update/'+id, student).pipe(
       map((res: any) => {
         return res;
       }),

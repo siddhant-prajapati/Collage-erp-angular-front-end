@@ -6,7 +6,7 @@
   }
   .grid-item {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: auto auto  ;
     background-color: aliceblue;
     padding: 20px;
     margin: 5px;
@@ -21,6 +21,9 @@
     object-fit: cover;
     width: 195px;
     height: 200px;
+    margin: 10px;
+    box-shadow: 5px 5px 5px;
+    border-radius: 20px;
   }
   .data {
     text-align: justify;
@@ -49,7 +52,7 @@
     }
   }
   
-  @media screen and (min-width: 750){
+  @media screen and (min-width: 750px){
     p{ font-size: small;}
     .grid-item {
       display: grid;
@@ -61,10 +64,13 @@
     }
   }
   
-  @media screen and (max-width: 650){
+  @media screen and (max-width: 650px){
+    .profile-pic img {
+      width: 80vw;
+      height: 80vw;
+    }
     p { font-size: smaller;}
     .grid-item {
-      display: grid;
-      grid-template-columns: 50% 50%;
+      grid-template-columns: auto;
     }
   }

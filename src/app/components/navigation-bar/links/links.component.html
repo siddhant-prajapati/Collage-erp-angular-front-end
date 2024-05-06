@@ -17,7 +17,13 @@
 
     </div>
     
-<div><a routerLink="account" class="text-color account" id="account">My Account</a></div>
+<div class="account">
+    <a routerLink="account" class="text-color" id="account" style="display: flex;">
+        <img src="../../../../assets/images/Profile-image/{{profilePic}}" alt="profile-pic" (error)="handleImg($event)">
+        My Account
+    </a>
+    
+</div>
 
 
 

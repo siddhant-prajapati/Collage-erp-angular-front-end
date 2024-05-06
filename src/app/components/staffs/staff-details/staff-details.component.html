@@ -1,7 +1,6 @@
 <div class="staff-data">
     <div class="profile-photo">
         <img src="../../../../assets/images/Profile-image/{{this.httpService.staff?.profilePic}}" (error)="handleImage($event)" alt="">
-        <!-- <img src="../../../../assets/images/default-user.jpg"  alt=""> -->
     </div>
     <div>
         <table>
@@ -64,12 +63,12 @@
                 </td>
             </tr>
         </table>
-        @if(showEle){
-            <div >
-                <app-update-staff></app-update-staff>
-            </div>
-        }
         
-        
-    </div>    
+    </div>   
+    
 </div>
+@if(showEle){
+    <div >
+        <app-update-staff></app-update-staff>
+    </div>
+} 

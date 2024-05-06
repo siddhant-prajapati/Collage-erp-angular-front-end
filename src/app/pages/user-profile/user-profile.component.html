@@ -29,7 +29,7 @@
     <div class="profile-pic" *ngIf="role === 'staff' || role === 'student'">
         <div class="pic" *ngIf="role === 'staff'">
             <img 
-                src="../../../assets/images/Profile-image/{{this.httpService.staffProfile.profilePic}}" 
+                src="../../../assets/images/Profile-image/{{this.staffService.staffProfile.profilePic}}" 
                 alt="user-profile"
                 (error)="handleImage($event)"
             />
@@ -76,7 +76,7 @@
     } @else {
         <div class="attendance">
             <app-user-attendance [attendance] = "this.studentService.studentProfile.attendance"  *ngIf="role === 'student'"></app-user-attendance>
-            <app-user-attendance [attendance] = "this.httpService.staffProfile.attendance"  *ngIf="role === 'staff'"></app-user-attendance>
+            <app-user-attendance [attendance] = "this.staffService.staffProfile.attendance"  *ngIf="role === 'staff'"></app-user-attendance>
         </div>
     }
 

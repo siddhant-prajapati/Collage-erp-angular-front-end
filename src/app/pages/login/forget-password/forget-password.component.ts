@@ -4,9 +4,9 @@ import { FormHeaderComponent } from '../../../components/form-header/form-header
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { ApiRequestService } from '../../../services/api-request.service';
 import {MatSelectModule} from '@angular/material/select';
 import { Router } from '@angular/router';
+import { AuthApiService } from '../../../services/auth-api.service';
 
 
 @Component({
@@ -26,7 +26,7 @@ import { Router } from '@angular/router';
 export class ForgetPasswordComponent {
   constructor(private fb : FormBuilder){}
 
-  httpService = inject(ApiRequestService)
+  httpService = inject(AuthApiService)
   router = inject(Router)
 
   forgetPasswordGroup : FormGroup = this.fb.group({

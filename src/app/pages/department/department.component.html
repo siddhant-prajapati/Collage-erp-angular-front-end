@@ -1,84 +1,84 @@
 <div class="department">
     <div class="side-list">
-        <ul>
-            <li>
+        <div class="department-list">
+            <div>
                 <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                     <mat-expansion-panel-header>
                     <mat-panel-title>
                         <a routerLink="computer" (click)="setDepartment('computer')">Computer Engineering</a>
                     </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <a [routerLink]="'computer'+'/faculties/all'"> Our Alumni </a>
+                    <a [routerLink]="'computer'+'/faculties/all'" style="margin: 15px;"> Our Alumni </a>
                     <app-operation-list [department]="'computer'"></app-operation-list>
                 </mat-expansion-panel>
                 <!-- <a routerLink="computer" (click)="setDepartment('computer')">Computer Engineering</a> -->
-            </li>
-            <li>
+            </div>
+            <div>
                 <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                     <mat-expansion-panel-header>
                     <mat-panel-title>
                         <a routerLink="it" (click)="setDepartment('it')">IT Engineering</a>
                     </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <a [routerLink]="'it'+'/faculties/all'"> Our Alumni </a>
+                    <a [routerLink]="'it'+'/faculties/all'" style="margin: 15px;"> Our Alumni </a>
                     <app-operation-list [department]="'it'"></app-operation-list>
                     
                 </mat-expansion-panel>
                 <!-- <a routerLink="it" (click)="setDepartment('it')">IT Engineering</a> -->
-            </li>
-            <li>
+            </div>
+            <div>
                 <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                     <mat-expansion-panel-header>
                     <mat-panel-title>
                         <a routerLink="electrical" (click)="setDepartment('electrical')">Electrical Engineering</a>
                     </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <a [routerLink]="'electrical'+'/faculties/all'"> Our Alumni </a>
+                    <a [routerLink]="'electrical'+'/faculties/all'" style="margin: 15px;"> Our Alumni </a>
                     <app-operation-list [department]="'electrical'"></app-operation-list>
                     
                 </mat-expansion-panel>
                 <!-- <a routerLink="electrical" (click)="setDepartment('electrical')">Electrical Engineering</a>  -->
-            </li>
-            <li>
+            </div>
+            <div>
                 <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                     <mat-expansion-panel-header>
                     <mat-panel-title>
                         <a routerLink="civil" (click)="setDepartment('civil')">Civil Engineering</a>
                     </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <a [routerLink]="'civil'+'/faculties/all'"> Our Alumni </a>
+                    <a [routerLink]="'civil'+'/faculties/all'" style="margin: 15px;"> Our Alumni </a>
                     <app-operation-list [department]="'civil'"></app-operation-list>
                     
                 </mat-expansion-panel>
                 <!-- <a routerLink="civil" (click)="setDepartment('civil')">Civil Engineering</a> -->
-            </li>
-            <li>
+            </div>
+            <div>
                 <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                     <mat-expansion-panel-header>
                     <mat-panel-title>
                         <a routerLink="chemical" (click)="setDepartment('chemical')">Chemical Engineering</a>
                     </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <a [routerLink]="'chemical'+'/faculties/all'"> Our Alumni </a>
+                    <a [routerLink]="'chemical'+'/faculties/all'" style="margin: 15px;"> Our Alumni </a>
                     <app-operation-list [department]="'chemical'"> </app-operation-list>
                     
                 </mat-expansion-panel>
                 <!-- <a routerLink="chemical" (click)="setDepartment('chemical')">Chemical Engineering</a> -->
-            </li>
-            <li>
+            </div>
+            <div>
                 <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                     <mat-expansion-panel-header>
                     <mat-panel-title>
                         <a routerLink="mechanical" (click)="setDepartment('mechanical')">Mechanical Engineering</a>
                     </mat-panel-title>
                     </mat-expansion-panel-header>
-                    <a [routerLink]="'mechanical'+'/faculties/all'"> Our Alumni </a>
+                    <a [routerLink]="'mechanical'+'/faculties/all'" style="margin: 15px;"> Our Alumni </a>
                     <app-operation-list [department]="'mechanical'"></app-operation-list>
                     
                 </mat-expansion-panel>
                 <!-- <a routerLink="mechanical" (click)="setDepartment('mechanical')">MechanicalEngineering</a> -->
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
     <div class="content">
         <router-outlet></router-outlet>

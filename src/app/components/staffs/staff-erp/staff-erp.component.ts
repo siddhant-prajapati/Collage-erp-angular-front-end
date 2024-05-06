@@ -7,6 +7,7 @@ import { AddStaffComponent } from '../add-staff/add-staff.component';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { StaffDetailsComponent } from '../staff-details/staff-details.component';
 import { ApiRequestService } from '../../../services/api-request.service';
+import { StaffApiService } from '../../../services/staff-api.service';
 
 @Component({
   selector: 'app-staff-erp',
@@ -25,7 +26,7 @@ import { ApiRequestService } from '../../../services/api-request.service';
   styleUrl: './staff-erp.component.css'
 })
 export class StaffErpComponent {
-  httpService = inject(ApiRequestService)
+  httpService = inject(StaffApiService)
   showElement:boolean = false
 
   toggleForm(){

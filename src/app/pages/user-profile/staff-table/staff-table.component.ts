@@ -1,6 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { ApiRequestService } from '../../../services/api-request.service';
+import { StaffApiService } from '../../../services/staff-api.service';
 
 @Component({
   selector: 'app-staff-table',
@@ -22,5 +23,5 @@ export class StaffTableComponent implements OnChanges{
   }
   // @Input()
   // staff : any;
-  httpService = inject(ApiRequestService)
+  httpService = inject(StaffApiService)
 }

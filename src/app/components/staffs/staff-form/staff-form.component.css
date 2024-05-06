@@ -40,7 +40,7 @@ mat-radio-button {
 }
 
 .spec-input {
+    border-bottom: solid;
     border-width: 2px;
-    border-style: solid;
     border-color: red;
 }

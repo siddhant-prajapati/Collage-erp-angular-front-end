@@ -1,41 +1,42 @@
 
 <h2>List of Faculties in Computer Department</h2>
-<div class="user-profile">
+<div>
     @for (staff of staffs ; track staff.email){
-        <div classs="profile-image">
-            
-            <img 
-            src='../../../assets/images/Profile-image/{{staff.profilePic}}' 
-            (error)="handleImageError($event)"
-            alt="staff-profile-picture">
-        </div>
-        <div class="user-details">
-            <table>
-                <tr>
-                    <td>Faculty Name</td>
-                    <td>{{staff.staffName}}</td>
-                </tr>
-                <tr>
-                    <td>Mobile No</td>
-                    <td>{{staff.mobileNo}}</td>
-                </tr>
-                <tr>
-                    <td>Department</td>
-                    <td>{{staff.department}}</td>
-                </tr>
-                <tr>
-                    <td>Address</td>
-                    <td>{{staff.address}}</td>
-                </tr>
-                <tr>
-                    <td>Expertise</td>
-                    <td>M.Tech</td>
-                </tr>
-                <tr>
-                    <td>Experience</td>
-                    <td>7 years</td>
-                </tr>
-            </table>
+        <div class="user-profile">
+            <div classs="profile-image">
+                <img 
+                src='../../../assets/images/Profile-image/{{staff.profilePic}}' 
+                (error)="handleImageError($event)"
+                alt="staff-profile-picture">
+            </div>
+            <div class="user-details">
+                <table class="user-table">
+                    <tr>
+                        <td>Faculty Name</td>
+                        <td>{{staff.staffName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Mobile No</td>
+                        <td>{{staff.mobileNo}}</td>
+                    </tr>
+                    <tr>
+                        <td>Department</td>
+                        <td>{{staff.department}}</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>{{staff.address}}</td>
+                    </tr>
+                    <tr>
+                        <td>Expertise</td>
+                        <td>M.Tech</td>
+                    </tr>
+                    <tr>
+                        <td>Experience</td>
+                        <td>7 years</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     }
 </div>

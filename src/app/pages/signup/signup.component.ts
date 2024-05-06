@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ApiRequestService } from '../../services/api-request.service';
 import { CommonModule } from '@angular/common';
 import { SignUp } from '../../models/signup.model';
+import { AuthApiService } from '../../services/auth-api.service';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,7 @@ export class SignupComponent {
 
   constructor(private fb : FormBuilder){}
 
-  httpService =inject(ApiRequestService)
+  httpService =inject(AuthApiService)
   router = inject(Router)
 
   signUpGroup : FormGroup = this.fb.group({

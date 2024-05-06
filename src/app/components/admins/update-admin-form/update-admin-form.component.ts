@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AdminFormComponent } from '../admin-form/admin-form.component';
 import { ApiRequestService } from '../../../services/api-request.service';
 import { MatButton } from '@angular/material/button';
+import { AdminApiService } from '../../../services/admin-api.service';
 
 @Component({
   selector: 'app-update-admin-form',
@@ -14,7 +15,7 @@ import { MatButton } from '@angular/material/button';
   styleUrl: './update-admin-form.component.css'
 })
 export class UpdateAdminFormComponent {
-  httpService = inject(ApiRequestService)
+  httpService = inject(AdminApiService)
   constructor(private fb : FormBuilder){}
   adminUpdateGroup : FormGroup = this.fb.group({
     adminName : ['', Validators.required],

@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { FillAttendanceModel } from '../../../models/fillAttendance.model';
 import { AttendanceTableComponent } from '../attendance-table/attendance-table.component';
 import { StaffAttendanceTableComponent } from '../staff-attendance-table/staff-attendance-table.component';
+import { AttendanceApiService } from '../../../services/attendance-api.service';
 
 @Component({
   selector: 'app-fill-staff-attendance',
@@ -29,6 +30,7 @@ import { StaffAttendanceTableComponent } from '../staff-attendance-table/staff-a
 export class FillStaffAttendanceComponent implements OnInit{
   
   apiRequestService = inject(ApiRequestService)
+  attendanceServie = inject(AttendanceApiService)
   staffAttendance:any[] = []
 
   constructor(private fb : FormBuilder){}
@@ -53,8 +55,8 @@ export class FillStaffAttendanceComponent implements OnInit{
     // } catch(e){
     //   alert('Can not find staff, Enter valid staffId');
     // }
-    this.apiRequestService.staffAttendances = await this.apiRequestService.findAttendanceByUserId(staffId).toPromise()
-    console.log(this.apiRequestService.staffAttendances);
+    this.attendanceServie.staffAttendances = await this.attendanceServie.findAttendanceByUserId(staffId).toPromise()
+    console.log(this.attendanceServie.staffAttendances);
   }
 
   attendanceGroup : FormGroup = this.fb.group({
@@ -74,7 +76,7 @@ export class FillStaffAttendanceComponent implements OnInit{
         userIds: formValue.userIds
       }
       console.log(attendance);
-      const data = await this.apiRequestService.fillAttendance(attendance).toPromise()
+      const data = await this.attendanceServie.fillAttendance(attendance).toPromise()
       alert("Attendance filled!")
     }
   }

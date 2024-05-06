@@ -10,6 +10,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { ApiRequestService } from '../../../services/api-request.service';
 import { Staff } from '../../../models/staff.model';
 import { CommonModule } from '@angular/common';
+import { ButtonStyleDirective } from '../../../directives/button-style.directive';
+import { StaffApiService } from '../../../services/staff-api.service';
 
 @Component({
   selector: 'app-staff-form',
@@ -23,13 +25,14 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    CommonModule
+    CommonModule,
+    ButtonStyleDirective
   ],
   templateUrl: './staff-form.component.html',
   styleUrl: './staff-form.component.css'
 })
 export class StaffFormComponent {
-  httpService = inject(ApiRequestService)
+  httpService = inject(StaffApiService)
 
   val: any;
 
@@ -42,7 +45,7 @@ export class StaffFormComponent {
     staffName : ['', [Validators.required]],
     department : [ this.httpService.department, [Validators.required]],
     email : ['',[Validators.required, Validators.email]],
-    mobileNo : ['', Validators.required, Validators.minLength, Validators.maxLength],
+    mobileNo : ['', [Validators.required, Validators.maxLength]],
     address : ['',[Validators.required]],
     password : [''],
     attendance : [''],
@@ -57,8 +60,8 @@ export class StaffFormComponent {
   async submitForm(){
     
     this.staffGroup.value.specialization =this.specilize
-    console.log(this.staffGroup.value);
-    console.log(this.httpService.operation);
+    // console.log(this.staffGroup.value);
+    
     
     if(this.staffGroup.valid){
       let formData = this.staffGroup.value
@@ -76,8 +79,9 @@ export class StaffFormComponent {
         attendance: formData.attendance
       }
       try {
-        if(this.httpService.operation === 'add'){
-
+        console.log(this.staffGroup.value);
+        if(this.httpService.operation == 'add'){
+          console.log(this.httpService.operation);
           const data = (await this.httpService.createStaff(staff)).toPromise()
           console.log(data)
           alert('Successfully new staff added')
@@ -94,6 +98,8 @@ export class StaffFormComponent {
       } catch (e){
         alert(e)
       }
+    } else {
+      alert('Enter valid Data')
     }
 
   }

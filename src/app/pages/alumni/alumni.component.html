@@ -6,7 +6,7 @@
         @for (staff of this.apiRequestService.staffList ; track staff.staffId ; let i = $index ) {
             <div class="grid-item">
                 <div class="profile-pic">
-                    <img src="../../../assets/images/Profile-image/staff-{{staff.staffId}}.jpg" alt="profile image" >
+                    <img src="../../../assets/images/Profile-image/{{staff.profilePic}}" alt="profile image" (error)="handleImag($event)">
                 </div>
                 <div class="data">
                     <p>

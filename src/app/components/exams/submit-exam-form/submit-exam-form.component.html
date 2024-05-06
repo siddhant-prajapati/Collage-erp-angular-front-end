@@ -42,7 +42,7 @@
     <div formArrayName="exams">
         <div>
             <b>Add Subject</b>
-            <button (click)="addExams()" style="background-color: blue;">
+            <button (click)="addExams()" appButtonStyle="blue" >
                 Add Subject
             </button>
         </div>
@@ -96,7 +96,8 @@
                     type="button"  
                     style="background-color: red;" 
                     (click)="deleteMarks(i)"
-                    class="del-spec subject">
+                    class="del-spec"
+                    appButtonStyle="red">
                         Delete
                 </button>
             </div>

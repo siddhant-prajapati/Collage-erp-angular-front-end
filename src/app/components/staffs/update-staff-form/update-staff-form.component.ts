@@ -4,6 +4,7 @@ import { ApiRequestService } from '../../../services/api-request.service';
 import { Staff } from '../../../models/staff.model';
 import { FormHeaderComponent } from '../../form-header/form-header.component';
 import { CommonModule } from '@angular/common';
+import { StaffApiService } from '../../../services/staff-api.service';
 
 @Component({
   selector: 'app-update-staff-form',
@@ -24,7 +25,7 @@ export class UpdateStaffFormComponent implements OnChanges{
   // staff:any;
 
   fb = inject(FormBuilder)
-  httpService = inject(ApiRequestService)
+  httpService = inject(StaffApiService)
 
   staffUpdateGroup : FormGroup = this.fb.group({
     staffName : [this.httpService.staffProfile.staffName , Validators.required],

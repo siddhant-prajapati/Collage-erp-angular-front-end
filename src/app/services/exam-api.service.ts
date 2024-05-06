@@ -19,11 +19,7 @@ export class ExamApiService {
 
   findExamByStudentId(studentId : number){
     const token = sessionStorage.getItem("token")
-    return this.http.get(devEnvironment.backEndUrl+ '/exam/get-by-studentId/'+studentId, {
-      headers : {
-        'Authorization' : `Bearer ${token}`
-      }
-    }).pipe(
+    return this.http.get(devEnvironment.backEndUrl+ '/exam/get-by-studentId/'+studentId).pipe(
       map((res: any) => {
         return res;
       }),
@@ -41,11 +37,7 @@ export class ExamApiService {
 
   submitExam(submitExam : SubmitExam){
     const token = sessionStorage.getItem("token")
-    return this.http.post(devEnvironment.backEndUrl+ '/exam/submit-data', submitExam, {
-      headers : {
-        'Authorization' : `Bearer ${token}`
-      }
-    }).pipe(
+    return this.http.post(devEnvironment.backEndUrl+ '/exam/submit-data', submitExam).pipe(
       map((res: any) => {
         return res;
       }),
@@ -65,11 +57,7 @@ export class ExamApiService {
     const token = sessionStorage.getItem("token")
     console.log(token);
     
-    return this.http.get(devEnvironment.backEndUrl+ '/exam/update-mark/'+ id + "?mark=" + mark, {
-      headers : {
-        'Authorization' : `Bearer ${token}`
-      }
-    }).pipe(
+    return this.http.get(devEnvironment.backEndUrl+ '/exam/update-mark/'+ id + "?mark=" + mark).pipe(
       map((res: any) => {
         return res;
       }),
@@ -87,11 +75,7 @@ export class ExamApiService {
 
   deleteExamDataById(id : number){
     const token = sessionStorage.getItem("token")
-    return this.http.delete(devEnvironment.backEndUrl+ '/exam/delete/'+ id, {
-      headers : {
-        'Authorization' : `Bearer ${token}`
-      }
-    }).pipe(
+    return this.http.delete(devEnvironment.backEndUrl+ '/exam/delete/'+ id).pipe(
       map((res: any) => {
         return res;
       }),

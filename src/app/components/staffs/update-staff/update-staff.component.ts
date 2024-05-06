@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ApiRequestService } from '../../../services/api-request.service';
 import { StaffFormComponent } from '../staff-form/staff-form.component';
+import { StaffApiService } from '../../../services/staff-api.service';
 
 @Component({
   selector: 'app-update-staff',
@@ -10,5 +11,5 @@ import { StaffFormComponent } from '../staff-form/staff-form.component';
   styleUrl: './update-staff.component.css'
 })
 export class UpdateStaffComponent {
-  httpService = inject(ApiRequestService)
+  httpService = inject(StaffApiService)
 }

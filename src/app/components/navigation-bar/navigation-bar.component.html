@@ -1,5 +1,5 @@
 <div>
-    <div style="background-color: white; height: 52px;">
+    <div style="background-color: #e3e3e3; height: 52px;">
         <div class="desktop-link">
             <app-links></app-links>
         </div>
@@ -7,7 +7,7 @@
     
     <div class="mobile-link">
         <div class="mobile-head">
-            <button (click)="toggleDisplay()" class="menu-btn">Menu</button>
+            <button (click)="eleShow = !eleShow" class="menu-btn">Menu</button>
             <div class="auth">
                 <a routerLink="/signup">
                     <button mat-flat-button class="btn-position" style="background-color: blue; color: white;">SignUp</button>

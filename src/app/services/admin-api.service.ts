@@ -14,6 +14,9 @@ export class AdminApiService {
   department:string="";
   operation : string = '';
 
+  
+  adminProfile : any;
+
   createAdmin(admin : Admin){
     return this.http.post(devEnvironment.backEndUrl + "/admin/new" , admin).pipe(
       map((res: any) => {
@@ -33,11 +36,7 @@ export class AdminApiService {
 
   updateAdmin(id : number , admin : Admin){
     const token = sessionStorage.getItem("token")
-    return this.http.put(devEnvironment.backEndUrl+ '/admin/update/'+id, admin, {
-      headers : {
-        'Authorization' : `Bearer ${token}`
-      }
-    }).pipe(
+    return this.http.put(devEnvironment.backEndUrl+ '/admin/update/'+id, admin).pipe(
       map((res: any) => {
         return res;
       }),
@@ -45,6 +44,26 @@ export class AdminApiService {
         //console.error("Error occur" + error)
         if(error.status === 400){
           alert("Enter valid information")
+        }
+        if(error.status === 500){
+          alert('Internal server error')
+        }
+        return throwError(error)
+      })
+    )
+  }
+
+
+  findAdminById(id : number){
+    const token = sessionStorage.getItem("token")
+    return this.http.get(devEnvironment.backEndUrl+ '/admin/get/'+id).pipe(
+      map((res: any) => {
+        return res;
+      }),
+      catchError((error)=> {
+        //console.error("Error occur" + error)
+        if(error.status === 404){
+          alert('Admin not found')
         }
         if(error.status === 500){
           alert('Internal server error')

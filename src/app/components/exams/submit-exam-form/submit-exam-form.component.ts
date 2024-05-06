@@ -10,6 +10,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { SubmitExam } from '../../../models/submitExam.model';
 import { ExamApiService } from '../../../services/exam-api.service';
+import { ButtonStyleDirective } from '../../../directives/button-style.directive';
 
 @Component({
   selector: 'app-submit-exam-form',
@@ -24,7 +25,8 @@ import { ExamApiService } from '../../../services/exam-api.service';
     ReactiveFormsModule,
     MatCheckboxModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ButtonStyleDirective
   ],
   templateUrl: './submit-exam-form.component.html',
   styleUrl: './submit-exam-form.component.css'

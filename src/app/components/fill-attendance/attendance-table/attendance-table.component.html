@@ -7,7 +7,7 @@
             <td><b>Date</b></td>
         </tr>
         @for(attendance of this.httpService.studentAttendances ; track attendance.attendaceId){
-            @if(attendance.role == 'staff' && this.httpService.role =='staff'){
+            @if(attendance.role == 'staff' && role =='staff'){
                 <tr>
                     <td colspan="3"><div style="color: red;">Staff Can not see other Staff attendance</div></td>
                 </tr>

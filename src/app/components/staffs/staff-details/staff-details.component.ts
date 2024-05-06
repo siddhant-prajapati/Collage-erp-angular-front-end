@@ -3,6 +3,7 @@ import { UpdateStaffComponent } from '../update-staff/update-staff.component';
 import { MatButtonModule } from '@angular/material/button';
 import { ApiRequestService } from '../../../services/api-request.service';
 import { JsonPipe } from '@angular/common';
+import { StaffApiService } from '../../../services/staff-api.service';
 
 @Component({
   selector: 'app-staff-details',
@@ -12,7 +13,7 @@ import { JsonPipe } from '@angular/common';
   styleUrl: './staff-details.component.css'
 })
 export class StaffDetailsComponent {
-  httpService = inject(ApiRequestService)
+  httpService = inject(StaffApiService)
 
   showEle:boolean = false;
   toggleEle(id : number){

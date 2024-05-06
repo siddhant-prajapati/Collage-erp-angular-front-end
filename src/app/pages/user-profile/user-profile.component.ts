@@ -16,6 +16,8 @@ import { AdminPledgeComponent } from '../../components/admins/admin-pledge/admin
 import { StudentApiService } from '../../services/student-api.service';
 import { CreateAdminFormComponent } from '../../components/admins/create-admin-form/create-admin-form.component';
 import { ChartAttendanceComponent } from '../../components/admins/chart-attendance/chart-attendance.component';
+import { StaffApiService } from '../../services/staff-api.service';
+import { AdminApiService } from '../../services/admin-api.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -59,7 +61,9 @@ export class UserProfileComponent implements OnInit{
   }
  
    studentService = inject(StudentApiService)
-   httpService = inject(ApiRequestService)
+   staffService = inject(StaffApiService)
+   apiRequestService = inject(ApiRequestService)
+   adminService = inject(AdminApiService)
 
   async findUserByRoleAndId(role : string, id : number){
 
@@ -74,16 +78,16 @@ export class UserProfileComponent implements OnInit{
       }
     } else if(role === 'staff') {
       try {
-        const res = await this.httpService.findStaffById(id).toPromise();
-        this.httpService.staffProfile = res;
+        const res = await this.staffService.findStaffById(id).toPromise();
+        this.staffService.staffProfile = res;
         //console.log(this.staffProfile)
       } catch (error) {
         console.error(error);
       }
     } else if(role === 'admin') {
       try {
-        const res = await this.httpService.findAdminById(id).toPromise();
-        this.httpService.adminProfile = res;
+        const res = await this.adminService.findAdminById(id).toPromise();
+        this.adminService.adminProfile = res;
         //console.log(this.staffProfile)
       } catch (error) {
         console.error(error);
@@ -95,7 +99,7 @@ export class UserProfileComponent implements OnInit{
   showForm:boolean=false;
   toggleForm(){
     this.showForm = !this.showForm
-    this.httpService.operation = 'update'
+    this.apiRequestService.operation = 'update'
   }
 
   showForm1:boolean=false;
@@ -108,7 +112,7 @@ export class UserProfileComponent implements OnInit{
   showForm2:boolean=false;
   toggleForm2(){
     this.showForm2 = !this.showForm2
-    this.httpService.operation = 'add'
+    this.apiRequestService.operation = 'add'
   }
 
   signOut(){
@@ -128,7 +132,7 @@ export class UserProfileComponent implements OnInit{
     const formObj =new FormData();
     formObj.append('image',file);
     try{
-    const data: any = await this.httpService.uploadImage(role , userId, formObj)
+    const data: any = await this.apiRequestService.uploadImage(role , userId, formObj)
       alert("successfully updated")
     } catch(e){
       console.log(e)
@@ -144,7 +148,7 @@ export class UserProfileComponent implements OnInit{
     const formObj =new FormData();
     formObj.append('image',file);
     try{
-    const data: any = await this.httpService.uploadImage(role , userId, formObj)
+    const data: any = await this.apiRequestService.uploadImage(role , userId, formObj)
       alert("successfully updated")
     } catch(e){
       console.log(e)
@@ -155,7 +159,7 @@ export class UserProfileComponent implements OnInit{
   image : any;
   showImage(){
     try{
-      const data: any = this.httpService.showImageById()
+      const data: any = this.apiRequestService.showImageById()
       this.image = data
       } catch(e){
         console.log(e)

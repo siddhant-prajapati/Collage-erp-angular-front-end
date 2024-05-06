@@ -12,6 +12,7 @@ import { StudentChartComponent } from './student-chart/student-chart.component';
 import { StaffChartComponent } from './staff-chart/staff-chart.component';
 import { ApiRequestService } from '../../../services/api-request.service';
 import { StudentApiService } from '../../../services/student-api.service';
+import { StaffApiService } from '../../../services/staff-api.service';
 
 @Component({
   selector: 'app-chart-attendance',
@@ -33,8 +34,9 @@ import { StudentApiService } from '../../../services/student-api.service';
   styleUrl: './chart-attendance.component.css'
 })
 export class ChartAttendanceComponent {
-  staffService = inject(ApiRequestService)
+  staffService = inject(StaffApiService)
   studentService = inject(StudentApiService)
+  apiRequestService = inject(ApiRequestService)
 
   constructor(private fb : FormBuilder){}
   attendanceChartGroup : FormGroup = this.fb.group({
@@ -43,14 +45,19 @@ export class ChartAttendanceComponent {
   })
   showRole : string = this.attendanceChartGroup.value.role;
 
-  showAttendanceDetails(){
+  async showAttendanceDetails(){
     const department = this.attendanceChartGroup.value.department
     if(this.attendanceChartGroup.value.role === 'student' && this.attendanceChartGroup.value.department !== ''){
       this.studentService.findStudentByDepartment(department).subscribe( res => {
         this.studentService.studentList = res
       })
     } else if(this.attendanceChartGroup.value.role === 'staff' && this.attendanceChartGroup.value.department !== ''){
-      this.staffService.staffList = this.staffService.findUserByDepartment('staff', department) 
+      //console.log("Inside Staff chart");
+      
+      const staff = await this.apiRequestService.findUserByDepartment('staff', department)
+      //console.log(staff);
+      
+      this.staffService.staffList = staff; 
     }
      else{
       alert('Role is required')

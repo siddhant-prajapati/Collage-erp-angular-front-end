@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { ApiRequestService } from '../../../../services/api-request.service';
+import { StaffApiService } from '../../../../services/staff-api.service';
 
 @Component({
   selector: 'app-staff-chart',
@@ -10,7 +11,7 @@ import { ApiRequestService } from '../../../../services/api-request.service';
   styleUrl: './staff-chart.component.css'
 })
 export class StaffChartComponent implements OnInit {
-  apiRequestService = inject(ApiRequestService)
+  apiRequestService = inject(StaffApiService)
   async ngOnInit(): Promise<void> {
     (await this.apiRequestService.findAllStaffData()).subscribe(res => {
       this.apiRequestService.staffList = res
