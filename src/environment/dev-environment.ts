@@ -1,5 +1,5 @@
 export const devEnvironment = {
-    contactUrl : "http://localhost:3000/",
-    backEndUrl : "http://localhost:3000",
+    contactUrl : "https://collage-erp-springboot-project-production.up.railway.app",
+    backEndUrl : "https://collage-erp-springboot-project-production.up.railway.app",
     collageName : "V.V.P. Engineering Collage"
 }

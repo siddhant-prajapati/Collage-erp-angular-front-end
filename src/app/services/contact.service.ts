@@ -15,7 +15,7 @@ export class ContactService {
     try{
       console.log(message)
       const responce = await axios.post(
-        devEnvironment.contactUrl+"sendMail",
+        devEnvironment.contactUrl+"/sendMail",
         message,
         {
           headers : {
